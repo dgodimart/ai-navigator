@@ -1,0 +1,18 @@
+# Local Python tooling environment. Recreate with:
+#   python -m venv .venv && .venv\Scripts\pip install -r requirements.txt
+.venv/
+__pycache__/
+*.pyc
+
+# Machine-local Claude Code settings
+.claude/
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# NOTE: site/ is intentionally NOT ignored. It is the deployable, and Render
+# publishes it with no build step, so it has to be committed.

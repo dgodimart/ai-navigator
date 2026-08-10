@@ -1,0 +1,6 @@
+# Local tooling only. Render runs no build step — site/ is committed prebuilt —
+# so nothing here is installed at deploy time.
+#
+# unbundle.py and serve.py need only the standard library; Pillow is used by
+# optimize_images.py to shrink the print-resolution artwork in the draft.
+Pillow>=11.0

@@ -1,0 +1,15 @@
+# Normalize to LF in the repo. Render checks out on Linux, and mixed endings
+# across Windows contributors would otherwise churn the diff on every commit.
+* text=auto eol=lf
+
+# Generated output: never touched by git's newline conversion.
+#
+# Filenames under site/assets carry a sha1 of their contents, and render.yaml
+# serves them with `immutable` caching on the strength of that. If git rewrote
+# line endings on checkout, the bytes served would no longer match the hash in
+# the name they are served under. Marking the tree binary keeps the two in
+# lockstep on every platform.
+site/assets/** -text
+
+# The original bundle is a build input, byte-identical to what was exported.
+Client/** -text

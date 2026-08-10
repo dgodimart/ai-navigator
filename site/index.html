@@ -1,0 +1,2788 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>ThoughtLab AI City Navigator</title>
+<meta name="description" content="Benchmarking AI maturity across 200 cities worldwide - a ThoughtLab research program.">
+<meta property="og:title" content="ThoughtLab AI City Navigator">
+<meta property="og:description" content="Benchmarking AI maturity across 200 cities worldwide - a ThoughtLab research program.">
+<meta property="og:type" content="website">
+<script>window.__resources = {"regionMap": "assets/components/regionmap-f11ccea3.html", "./RankBars.dc.html": "assets/components/rankbars-dc-25544e17.html", "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "assets/js/react-production-min-aa77ae4c.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "assets/js/react-dom-production-min-feb8ddc9.js"};</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/js/asset-2e38395c.js"></script>
+
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-e338d01e.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-7301cde3.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-65449f16.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-e338d01e.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-7301cde3.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-65449f16.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-e338d01e.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-7301cde3.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-65449f16.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-e338d01e.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-7301cde3.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-65449f16.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-e338d01e.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-7301cde3.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fonts/archivo-500-65449f16.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>/* fallback */
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("assets/fonts/material-symbols-rounded-400-3132a569.woff2") format('woff2');
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+</style>
+<style>/* ThoughtLab brand fonts are Candara (wordmark/display) and Calibri (body) — Microsoft system fonts with no licensed webfont files provided.
+   Web substitutes: Carlito (metric-compatible Calibri clone) and Yaldevi (flared humanist, closest Candara match on Google Fonts).
+   Local Candara/Calibri are preferred first in every font stack, so on Windows the real brand fonts render. */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-a92a1ff7.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-493dcd39.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-de866e0d.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-f918f85c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-4e18dec7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-3e8edf98.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-47c9847d.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-7b915ded.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-225cba2c.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-a3447ceb.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-253068c8.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-2798b667.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-acd699f1.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-cfcd27fa.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-be304ea2.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-91462f83.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-b5233bb5.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-a59a1ff3.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-90d3aec7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-5653ae72.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-8e5b8f7e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-38478f93.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-500e0e78.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-1556604b.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-d3293e34.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-146e2e63.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-45d9422a.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-e0ef430b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+</style>
+<style>:root{
+/* ── Base palette (from ThoughtLab data-viz color order) ── */
+--tl-blue-gray:#48546C;   /* Accent 1 */
+--tl-ice-blue:#D8DCE4;    /* Accent 2 */
+--tl-teal:#086C94;        /* Accent 3 — brand primary, logo */
+--tl-brown:#98340C;       /* Accent 4 — dark red/brown, rare emphasis */
+--tl-gray:#989494;        /* Accent 5 */
+--tl-green:#508C3C;       /* Accent 6 */
+--tl-orange:#E66F00;      /* Background 2 — very rare, small accents only */
+--tl-pale-blue:#ECF4F7;   /* Text 2 — callout boxes / highlights */
+/* Tints seen in charts */
+--tl-teal-bright:#1B87B0; /* slide-title teal used in some decks */
+--tl-teal-light:#7FB8CE;
+--tl-sky:#A9CFDF;
+--tl-sky-light:#CBE3ED;
+--tl-ice-mid:#E4E7EC;
+--tl-white:#FFFFFF;
+--tl-ink:#231F20;         /* near-black body text in reports */
+--tl-gray-light:#C9C6C6;
+/* ── Semantic aliases ── */
+--brand-primary:var(--tl-teal);
+--brand-secondary:var(--tl-blue-gray);
+--text-title:var(--tl-blue-gray);
+--text-title-alt:var(--tl-teal-bright);
+--text-body:var(--tl-ink);
+--text-muted:var(--tl-gray);
+--text-on-color:var(--tl-white);
+--text-positive:var(--tl-green);
+--text-negative:var(--tl-brown);
+--surface-page:var(--tl-white);
+--surface-callout:var(--tl-pale-blue);
+--surface-band:var(--tl-teal);
+--surface-row-alt:#F3F7FA;
+--border-hairline:var(--tl-ice-blue);
+--border-rule:#B9C0CC;
+--link:var(--tl-teal);
+--link-hover:#0A5876;
+/* ── Data-viz series order (use in this order) ── */
+--viz-1:var(--tl-blue-gray);
+--viz-2:var(--tl-ice-blue);
+--viz-3:var(--tl-teal);
+--viz-4:var(--tl-green);
+--viz-5:var(--tl-gray);
+--viz-6:var(--tl-brown);
+--viz-7:var(--tl-orange);
+--viz-8:var(--tl-pale-blue);
+}
+</style>
+<style>:root{
+/* Candara = wordmark/display; Calibri = everything else. Real fonts first, web substitutes after. */
+--font-logo:Candara,'Yaldevi','Carlito',Calibri,sans-serif;
+--font-body:Calibri,'Carlito','Candara',sans-serif;
+/* Scale (slide-oriented, 1280×720 reference) */
+--fs-slide-title:40px;      /* light/regular, teal or blue-gray */
+--fs-section:24px;          /* chart & panel headings, semibold */
+--fs-chart-title:17px;      /* bold, ink */
+--fs-body:15px;
+--fs-caption:12px;          /* footnotes, survey Q, page footer */
+--fs-stat-xl:44px;          /* big callout numbers */
+--fs-stat:30px;
+--lh-tight:1.1; /* @kind other */
+--lh-body:1.4; /* @kind other */
+--fw-regular:400; /* @kind other */
+--fw-bold:700; /* @kind other */
+}
+body{font-family:var(--font-body);color:var(--text-body);font-size:var(--fs-body);line-height:var(--lh-body)}
+a{color:var(--link);text-decoration:underline}
+a:hover{color:var(--link-hover)}
+</style>
+<style>:root{
+--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--sp-7:48px;--sp-8:64px;
+--slide-pad-x:56px;   /* left/right margin of a 1280×720 slide */
+--slide-pad-top:40px;
+--col-gap:40px;       /* gap between text column and chart area */
+}
+</style>
+<style>:root{
+/* ThoughtLab is flat and square: no rounded corners, no drop shadows. */
+--radius-0:0;
+--rule-hairline:1px solid var(--border-hairline);
+--rule-divider:1px solid var(--border-rule);
+--rule-heading:2px solid var(--tl-ink);       /* under table/chart headings */
+--edge-band:6px solid var(--tl-teal);          /* thin teal page edge on some decks */
+--transition-fast:120ms ease; /* @kind other */
+}
+</style>
+<style>/* ThoughtLab brand fonts are Candara (wordmark/display) and Calibri (body) — Microsoft system fonts with no licensed webfont files provided.
+   Web substitutes: Carlito (metric-compatible Calibri clone) and Yaldevi (flared humanist, closest Candara match on Google Fonts).
+   Local Candara/Calibri are preferred first in every font stack, so on Windows the real brand fonts render. */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-a92a1ff7.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-493dcd39.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-de866e0d.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-f918f85c.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-4e18dec7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-3e8edf98.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-47c9847d.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-7b915ded.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-225cba2c.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-a3447ceb.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-253068c8.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-2798b667.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-acd699f1.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-cfcd27fa.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-be304ea2.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-91462f83.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-b5233bb5.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-a59a1ff3.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-90d3aec7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-5653ae72.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/carlito-400-8e5b8f7e.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-38478f93.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-500e0e78.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-1556604b.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-d3293e34.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-146e2e63.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-45d9422a.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Carlito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/carlito-700-e0ef430b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* sinhala */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-c0be3fe5.woff2") format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-8ae75b0c.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yaldevi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/yaldevi-400-35f646d6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+:root{
+/* ── Base palette (from ThoughtLab data-viz color order) ── */
+--tl-blue-gray:#48546C;   /* Accent 1 */
+--tl-ice-blue:#D8DCE4;    /* Accent 2 */
+--tl-teal:#086C94;        /* Accent 3 — brand primary, logo */
+--tl-brown:#98340C;       /* Accent 4 — dark red/brown, rare emphasis */
+--tl-gray:#989494;        /* Accent 5 */
+--tl-green:#508C3C;       /* Accent 6 */
+--tl-orange:#E66F00;      /* Background 2 — very rare, small accents only */
+--tl-pale-blue:#ECF4F7;   /* Text 2 — callout boxes / highlights */
+/* Tints seen in charts */
+--tl-teal-bright:#1B87B0; /* slide-title teal used in some decks */
+--tl-teal-light:#7FB8CE;
+--tl-sky:#A9CFDF;
+--tl-sky-light:#CBE3ED;
+--tl-ice-mid:#E4E7EC;
+--tl-white:#FFFFFF;
+--tl-ink:#231F20;         /* near-black body text in reports */
+--tl-gray-light:#C9C6C6;
+/* ── Semantic aliases ── */
+--brand-primary:var(--tl-teal);
+--brand-secondary:var(--tl-blue-gray);
+--text-title:var(--tl-blue-gray);
+--text-title-alt:var(--tl-teal-bright);
+--text-body:var(--tl-ink);
+--text-muted:var(--tl-gray);
+--text-on-color:var(--tl-white);
+--text-positive:var(--tl-green);
+--text-negative:var(--tl-brown);
+--surface-page:var(--tl-white);
+--surface-callout:var(--tl-pale-blue);
+--surface-band:var(--tl-teal);
+--surface-row-alt:#F3F7FA;
+--border-hairline:var(--tl-ice-blue);
+--border-rule:#B9C0CC;
+--link:var(--tl-teal);
+--link-hover:#0A5876;
+/* ── Data-viz series order (use in this order) ── */
+--viz-1:var(--tl-blue-gray);
+--viz-2:var(--tl-ice-blue);
+--viz-3:var(--tl-teal);
+--viz-4:var(--tl-green);
+--viz-5:var(--tl-gray);
+--viz-6:var(--tl-brown);
+--viz-7:var(--tl-orange);
+--viz-8:var(--tl-pale-blue);
+}
+
+:root{
+/* Candara = wordmark/display; Calibri = everything else. Real fonts first, web substitutes after. */
+--font-logo:Candara,'Yaldevi','Carlito',Calibri,sans-serif;
+--font-body:Calibri,'Carlito','Candara',sans-serif;
+/* Scale (slide-oriented, 1280×720 reference) */
+--fs-slide-title:40px;      /* light/regular, teal or blue-gray */
+--fs-section:24px;          /* chart & panel headings, semibold */
+--fs-chart-title:17px;      /* bold, ink */
+--fs-body:15px;
+--fs-caption:12px;          /* footnotes, survey Q, page footer */
+--fs-stat-xl:44px;          /* big callout numbers */
+--fs-stat:30px;
+--lh-tight:1.1; /* @kind other */
+--lh-body:1.4; /* @kind other */
+--fw-regular:400; /* @kind other */
+--fw-bold:700; /* @kind other */
+}
+body{font-family:var(--font-body);color:var(--text-body);font-size:var(--fs-body);line-height:var(--lh-body)}
+a{color:var(--link);text-decoration:underline}
+a:hover{color:var(--link-hover)}
+
+:root{
+--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--sp-7:48px;--sp-8:64px;
+--slide-pad-x:56px;   /* left/right margin of a 1280×720 slide */
+--slide-pad-top:40px;
+--col-gap:40px;       /* gap between text column and chart area */
+}
+
+:root{
+/* ThoughtLab is flat and square: no rounded corners, no drop shadows. */
+--radius-0:0;
+--rule-hairline:1px solid var(--border-hairline);
+--rule-divider:1px solid var(--border-rule);
+--rule-heading:2px solid var(--tl-ink);       /* under table/chart headings */
+--edge-band:6px solid var(--tl-teal);          /* thin teal page edge on some decks */
+--transition-fast:120ms ease; /* @kind other */
+}
+
+</style>
+<script src="assets/js/asset-e8d62e85.js"></script>
+<script src="assets/js/asset-22a948e0.js"></script>
+<style>
+html,body{margin:0;padding:0}
+*{box-sizing:border-box}
+a{color:var(--link);text-decoration:underline}
+a:hover{color:var(--link-hover)}
+.tl-scroll::-webkit-scrollbar{width:9px;height:9px}
+.tl-scroll::-webkit-scrollbar-thumb{background:#C6D4DC;border-radius:6px}
+.tl-scroll::-webkit-scrollbar-track{background:transparent}
+@keyframes tlFade{from{opacity:0}to{opacity:1}}
+@keyframes tlRise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes tlFadeA{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes tlBobA{0%,100%{margin-left:0;margin-top:0}25%{margin-left:5px;margin-top:-7px}50%{margin-left:-4px;margin-top:6px}75%{margin-left:-6px;margin-top:-4px}}
+@keyframes tlBobB{0%,100%{margin-left:0;margin-top:0}30%{margin-left:-7px;margin-top:-5px}60%{margin-left:6px;margin-top:4px}80%{margin-left:3px;margin-top:-6px}}
+@keyframes tlBobC{0%,100%{margin-left:0;margin-top:0}20%{margin-left:6px;margin-top:5px}55%{margin-left:-5px;margin-top:-6px}80%{margin-left:-3px;margin-top:7px}}
+@keyframes tlFadeB{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes tlFadeC{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+[data-hl-card] [data-hl-src]{opacity:0;transition:opacity .16s ease,border-color .16s ease}
+[data-hl-card]:hover [data-hl-src],[data-hl-card]:focus-visible [data-hl-src]{opacity:1;border-top-color:#D5E4EA}
+@media (max-height:620px){nav button{padding-top:1px !important;padding-bottom:1px !important;margin-bottom:0 !important}}
+@media (max-width:1180px){[data-bg-exhibits]{border-left:0 !important;border-top:1px solid #E9EEF2}}
+@media (max-width:1180px){[data-hero-media]{display:none !important}}
+@media (max-height:700px){[data-hero-media]{display:none !important}}
+</style>
+</helmet>
+
+<div style="display:flex;height:100dvh;max-height:100dvh;width:100vw;max-width:100%;overflow:hidden;font-family:Calibri,'Carlito',sans-serif;color:#231F20;background:#F6F6F7">
+
+  <aside style="flex:none;width:270px;height:100%;display:flex;flex-direction:column;background:linear-gradient(185deg,#0B4A63 0%,#062B39 100%);color:#fff">
+    <div style="padding:clamp(11px,2.1vh,20px) 22px clamp(7px,1.3vh,12px);flex:none">
+      <a href="https://thoughtlabgroup.com/" target="_blank" rel="noopener" title="thoughtlabgroup.com" style="display:inline-flex;align-items:center;text-decoration:none;font-family:Candara,'Yaldevi',Calibri,sans-serif;font-size:22px;line-height:1;color:#fff" style-hover="opacity:.82"><span style="font-weight:700">Thought</span><span style="font-weight:400;color:#fff">Lab</span></a>
+      <div style="margin-top:10px;font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.15em;color:#7FB8CE;font-weight:700">AI CITY NAVIGATOR</div>
+    </div>
+
+
+    <nav style="flex:1 1 auto;min-height:0;overflow:hidden;padding:2px 12px 10px">
+      <sc-for list="{{ homeNav }}" as="item" hint-placeholder-count="1">
+        <button onclick="{{ item.go }}" style="{{ item.style }}" style-hover="background:rgba(255,255,255,.09)">
+          <span style="{{ item.numStyle }}">{{ item.num }}</span>
+          <span style="flex:1 1 auto;min-width:0;line-height:1.3;text-wrap:pretty">{{ item.label }}</span>
+        </button>
+      </sc-for>
+      <div style="height:1px;background:rgba(255,255,255,.14);margin:8px 12px 2px"></div>
+      <sc-if value="{{ navCaps }}" hint-placeholder-val="{{ true }}"><div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:10px;letter-spacing:.15em;color:#5C8698;padding:8px 10px 4px;font-weight:700">THE STUDY</div></sc-if>
+      <sc-for list="{{ studyNav }}" as="item" hint-placeholder-count="6">
+        <button onclick="{{ item.go }}" style="{{ item.style }}" style-hover="background:rgba(255,255,255,.09)">
+          <span style="{{ item.numStyle }}">{{ item.num }}</span>
+          <span style="flex:1 1 auto;min-width:0;line-height:1.3;text-wrap:pretty">{{ item.label }}</span>
+        </button>
+      </sc-for>
+
+      <sc-if value="{{ navCaps }}" hint-placeholder-val="{{ true }}"><div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:10px;letter-spacing:.15em;color:#5C8698;padding:12px 10px 4px;font-weight:700">EXPLORE THE DATA</div></sc-if>
+      <sc-for list="{{ exploreNav }}" as="item" hint-placeholder-count="1">
+        <button onclick="{{ item.go }}" style="{{ item.style }}" style-hover="background:rgba(255,255,255,.09)">
+          <span style="{{ item.numStyle }}">{{ item.num }}</span>
+          <span style="flex:1 1 auto;min-width:0;line-height:1.3;text-wrap:pretty">{{ item.label }}</span>
+        </button>
+      </sc-for>
+
+      <sc-if value="{{ navCaps }}" hint-placeholder-val="{{ true }}"><div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:10px;letter-spacing:.15em;color:#5C8698;padding:12px 10px 4px;font-weight:700">BENCHMARK YOUR CITY</div></sc-if>
+      <sc-for list="{{ benchNav }}" as="item" hint-placeholder-count="2">
+        <button onclick="{{ item.go }}" style="{{ item.style }}" style-hover="background:rgba(255,255,255,.09)">
+          <span style="{{ item.numStyle }}">{{ item.num }}</span>
+          <span style="flex:1 1 auto;min-width:0;line-height:1.3;text-wrap:pretty">{{ item.label }}</span>
+        </button>
+      </sc-for>
+
+    </nav>
+
+    <div style="flex:none;padding:clamp(9px,1.5vh,14px) 20px clamp(10px,1.6vh,15px);border-top:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.16);display:flex;align-items:center">
+      <img src="assets/img/powered-by-neulogic-869e0984.svg" alt="Powered by Neulogic" style="display:block;width:100%;max-width:150px;height:auto">
+    </div>
+  </aside>
+
+  <main ref="{{ scrollRef }}" class="tl-scroll" style="{{ mainStyle }}">
+
+    <sc-if value="{{ show.overview }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="Overview" style="position:absolute;inset:0;overflow:hidden">
+        <div ref="{{ ovRef }}" style="position:absolute;top:0;left:0;width:100%;transform-origin:0 0;display:flex;flex-direction:column">
+        <div style="background: radial-gradient(900px 420px at 86% -10%,rgba(80,140,60,.30),transparent 62%),linear-gradient(145deg,#0B5E7E 0%,#084A64 42%,#062B39 100%); color: #fff; padding: 58px 54px 44px; width: 100%; box-sizing: border-box; flex: none; display: flex; align-items: stretch; gap: 40px; overflow: hidden">
+          <div style="flex:1 1 640px;min-width:0;max-width:840px;display:flex;flex-direction:column;justify-content:flex-start">
+          
+          <h1 style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-weight: 800; font-size: 52px; line-height: .98; letter-spacing: -.022em; margin: 0; text-transform: uppercase; color: #FFFFFF; max-width: 825px">Building a<br><span style="background-image: linear-gradient(96deg, rgb(80, 140, 60) 0%, rgb(63, 156, 110) 48%, rgb(27, 135, 176) 100%); background-clip: text; -webkit-text-fill-color: transparent; color: rgb(80, 140, 60);">people-first</span>,<br>AI-powered city</h1><p style="margin: 18px 0 0; font-size: 16px; line-height: 1.5; color: #FFFFFF; text-wrap: pretty; max-width: 728px; width: 698px; height: 120px; text-align: justify">Breakthroughs in AI are creating powerful opportunities for cities to enhance economic competitiveness, improve social outcomes, and modernize citizen services. But realizing this potential requires urban leaders to overcome critical challenges related to governance, data, skills, and public trust. This comprehensive, evidence-based research program, developed from a survey of 200 cities worldwide, is designed to equip city decision makers with a clear and actionable roadmap for creating a human-centered, AI-powered city.</p><div style="margin-top: 24px; flex: none; display: grid; grid-template-columns: repeat(5,1fr); align-items: stretch; border: 1px solid rgba(255,255,255,.24); border-radius: 14px; overflow: hidden; max-width: 728px; background: rgba(255,255,255,.05)">
+            <div style="padding:12px 8px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid rgba(255,255,255,.18)"><div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:21px;line-height:1;font-weight:800;letter-spacing:-.02em">200</div><div style="font-size: 12px; line-height: 1.25; color: #9FC2D2; margin-top: 6px">cities surveyed</div></div>
+            <div style="padding:12px 8px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid rgba(255,255,255,.18)"><div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 21px; line-height: 1; font-weight: 800; letter-spacing: -.02em; color: #FFFFFF">7</div><div style="font-size: 12px; line-height: 1.25; color: #9FC2D2; margin-top: 6px">urban domains covered</div></div>
+            <div style="padding:12px 8px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid rgba(255,255,255,.18)"><div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 21px; line-height: 1; font-weight: 800; letter-spacing: -.02em; color: #FFFFFF">650 M</div><div style="font-size: 12px; line-height: 1.25; color: #9FC2D2; margin-top: 6px">residents represented</div></div>
+            <div style="padding:12px 8px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid rgba(255,255,255,.18)"><div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 21px; line-height: 1; font-weight: 800; letter-spacing: -.02em; color: #FFFFFF">6</div><div style="font-size: 12px; line-height: 1.25; color: #9FC2D2; margin-top: 6px">regions represented</div></div>
+            <div style="padding:12px 8px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 21px; line-height: 1; font-weight: 800; letter-spacing: -.02em; color: #FFFFFF">10+</div><div style="font-size: 12px; line-height: 1.25; color: #9FC2D2; margin-top: 6px">expert interviews</div></div>
+          </div>
+          <div style="margin-top: 26px; flex: none">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:10px;letter-spacing:.15em;font-weight:700;color:#5C8698;margin-bottom:12px">SPONSORS</div>
+            <div style="display:flex;align-items:center;gap:clamp(8px,1.6vw,22px);flex-wrap:nowrap;min-width:0">
+              <img src="assets/img/dell-01952811.svg" alt="Dell" style="height:38px;width:auto;max-width:100%;flex:0 1 auto;min-width:0;object-fit:contain;filter:brightness(0) invert(1);opacity:.9">
+              <img src="assets/img/deloitte-156ce195.svg" alt="Deloitte" style="height:15px;width:auto;max-width:100%;flex:0 1 auto;min-width:0;object-fit:contain;filter:brightness(0) invert(1);opacity:.9">
+              <img src="assets/img/fedex-c9abf656.svg" alt="FedEx" style="height:19px;width:auto;max-width:100%;flex:0 1 auto;min-width:0;object-fit:contain;filter:brightness(0) invert(1);opacity:.9">
+              <img src="assets/img/fti-consulting-6133c32d.svg" alt="FTI Consulting" style="height:19px;width:auto;max-width:100%;flex:0 1 auto;min-width:0;object-fit:contain;filter:brightness(0) invert(1);opacity:.9">
+              <img src="assets/img/general-motors-c35c9cc2.svg" alt="General Motors" style="height:30px;width:auto;max-width:100%;flex:0 1 auto;min-width:0;object-fit:contain;filter:brightness(0) invert(1);opacity:.9">
+              <img src="assets/img/intel-a39742a3.svg" alt="Intel" style="height:23px;width:auto;max-width:100%;flex:0 1 auto;min-width:0;object-fit:contain;position:relative;top:-2px;filter:brightness(0) invert(1);opacity:.9">
+              <img src="assets/img/itron-01e040d6.svg" alt="Itron" style="height: 27px; width: 49px; max-width:100%; flex: 0 1 auto; min-width:0; object-fit: contain; position: relative; top: -2px; filter: brightness(0) invert(1); opacity: .9">
+              <img src="assets/img/microsoft-1a94b8db.svg" alt="Microsoft" style="height: 57px; width: 117px; max-width:100%; flex: 0 1 auto; min-width:0; filter: brightness(0) invert(1); opacity: .9; object-fit: contain; margin-left: -20px; margin-right: -20px">
+              <img src="assets/img/nvidia-1fdb31bd.webp" alt="NVIDIA" style="height:16px;width:auto;max-width:100%;flex:0 1 auto;min-width:0;object-fit:contain;filter:brightness(0) invert(1);opacity:.9">
+            </div>
+          </div>
+          
+          </div>
+        <div data-hero-media="" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 2px; flex:0 1 auto;width:330px;min-width:0;align-self:stretch;background: url(&quot;assets/img/photo-9abe93e0.jpg&quot;) center / cover no-repeat; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 18%, rgba(0,0,0,.85) 38%, #000 55%); mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 18%, rgba(0,0,0,.85) 38%, #000 55%); box-shadow: none"></div>
+        <div data-hero-media="" style="box-sizing:border-box;flex:0 1 auto;width:300px;min-width:0;align-self:stretch;display:flex;flex-direction:column;gap:12px">
+          
+          <div style="flex: 1; border-radius: 2px; background: url(&quot;assets/img/photo-16d77cee.jpg&quot;) center / cover no-repeat; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 1px 3px rgba(0,0,0,.08); display: flex; align-items: center; justify-content: center; font-size: 11.5px; letter-spacing: .13em; color: rgba(255,255,255,.42); font-family: 'Archivo',Calibri,sans-serif; font-weight: 700; overflow: visible; align-self: auto"></div><div style="flex: 1; border-radius: 2px; background: url(&quot;assets/img/photo-cf57b4d5.jpg&quot;) center / cover no-repeat; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 1px 3px rgba(0,0,0,.08); display: flex; align-items: center; justify-content: center; font-size: 11.5px; letter-spacing: .13em; color: rgba(255,255,255,.42); font-family: 'Archivo',Calibri,sans-serif; font-weight: 700"></div>
+          <div style="flex: 1; border-radius: 2px; background: url(&quot;assets/img/photo-2b58938b.jpg&quot;) center / cover no-repeat; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 1px 3px rgba(0,0,0,.08); display: flex; align-items: center; justify-content: center; font-size: 11.5px; letter-spacing: .13em; color: rgba(255,255,255,.42); font-family: 'Archivo',Calibri,sans-serif; font-weight: 700"></div>
+        </div></div>
+
+        <div style="flex:none;padding:30px 54px 34px;display:flex;flex-direction:column;gap:26px">
+
+          <div style="flex:none">
+            <div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 14px; letter-spacing: .15em; color: #508C3C; font-weight: 700; margin-bottom: 13px">ACCESS OUR DECISION SUPPORT PLATFORM FOR CITIES</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px">
+              <button onclick="{{ go.s2 }}" style="text-align:left;cursor:pointer;min-width:0;background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:20px 24px 22px;font-family:Calibri,'Carlito',sans-serif;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease" style-hover="transform:translateY(-3px);border-color:#9CCBD9;box-shadow:0 14px 30px rgba(8,64,88,.10)">
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.02em;color:#086C94">01</div>
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:19px;font-weight:800;color:#0B4A63;margin:11px 0 6px;letter-spacing:-.02em;text-transform:uppercase">READ THE REPORT</div>
+                <div style="font-size:14px;color:#5F7480;line-height:1.5">Research background plus five chapters following the questionnaire — priorities, challenges, maturity, urban domains, partners, and ROI.</div>
+              </button>
+              <button onclick="{{ go.index }}" style="text-align:left;cursor:pointer;min-width:0;background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:20px 24px 22px;font-family:Calibri,'Carlito',sans-serif;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease" style-hover="transform:translateY(-3px);border-color:#9CCBD9;box-shadow:0 14px 30px rgba(8,64,88,.10)">
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.02em;color:#508C3C">02</div>
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:19px;font-weight:800;color:#0B4A63;margin:11px 0 6px;letter-spacing:-.02em;text-transform:uppercase">EXPLORE THE DATA</div>
+                <div style="font-size:14px;color:#5F7480;line-height:1.5">All 200 participating cities, searchable and filterable by region, size, and economy, each with a profile.</div>
+              </button>
+              <button onclick="{{ go.benchmark }}" style="text-align:left;cursor:pointer;min-width:0;background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:20px 24px 22px;font-family:Calibri,'Carlito',sans-serif;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease" style-hover="transform:translateY(-3px);border-color:#9CCBD9;box-shadow:0 14px 30px rgba(8,64,88,.10)">
+                <div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 30px; line-height: 1; font-weight: 800; letter-spacing: -.02em; color: var(--viz-1)">03</div>
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:19px;font-weight:800;color:#0B4A63;margin:11px 0 6px;letter-spacing:-.02em;text-transform:uppercase">BENCHMARK YOUR CITY</div>
+                <div style="font-size:14px;color:#5F7480;line-height:1.5">Answer the same survey questions the 200 cities did and run our maturity model on your own city.</div>
+              </button>
+              <button onclick="{{ openAsk }}" style="text-align:left;cursor:pointer;min-width:0;background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:20px 24px 22px;font-family:Calibri,'Carlito',sans-serif;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease" style-hover="transform:translateY(-3px);border-color:#9CCBD9;box-shadow:0 14px 30px rgba(8,64,88,.10)">
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.02em;color:#2C7C6E">04</div>
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:19px;font-weight:800;color:#0B4A63;margin:11px 0 6px;letter-spacing:-.02em;text-transform:uppercase">ASK THE STUDY</div>
+                <div style="font-size:14px;color:#5F7480;line-height:1.5">Put a question to the full dataset and report in plain language and get an answer with its sources.</div>
+              </button>
+            </div>
+          </div>
+
+          <div style="flex:none">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:13px;flex:none">
+              <div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 14px; letter-spacing: .15em; color: #508C3C; font-weight: 700">THE HEADLINE FINDINGS</div>
+              <div style="display:flex;align-items:center;gap:14px">
+                <span style="font-size:12.5px;color:#8A9AA4">{{ hlCounter }}</span>
+                <div style="display:flex;gap:7px">
+                  <sc-for list="{{ hlDots }}" as="d" hint-placeholder-count="3">
+                    <button onclick="{{ d.go }}" style="{{ d.style }}"></button>
+                  </sc-for>
+                </div>
+                <div style="display:flex;gap:8px">
+                  <button onclick="{{ hlPrev }}" style="width:32px;height:32px;border:1.5px solid #508C3C;border-radius:999px;background:#fff;color:#508C3C;font-size:14px;line-height:1;cursor:pointer;font-family:Calibri,'Carlito',sans-serif;transition:background .16s ease,color .16s ease,border-color .16s ease" style-hover="background:#086C94;border-color:#086C94;color:#fff">←</button>
+                  <button onclick="{{ hlNext }}" style="width:32px;height:32px;border:1.5px solid #508C3C;border-radius:999px;background:#fff;color:#508C3C;font-size:14px;line-height:1;cursor:pointer;font-family:Calibri,'Carlito',sans-serif;transition:background .16s ease,color .16s ease,border-color .16s ease" style-hover="background:#086C94;border-color:#086C94;color:#fff">→</button>
+                </div>
+              </div>
+            </div>
+            <div onmouseenter="{{ hlPause }}" onmouseleave="{{ hlResume }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+              <sc-for list="{{ headlineCards }}" as="c" hint-placeholder-count="4">
+                <button data-hl-card="" onclick="{{ c.go }}" style="{{ c.style }}" style-hover="border-color:#086C94;background:#ECF4F7;transform:translateY(-3px)">
+                  <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:36px;line-height:1;font-weight:800;color:#C9D9E1;letter-spacing:-.03em">{{ c.value }}</div>
+                  <div style="font-size:13.5px;color:#5F7480;margin:8px 0 12px;line-height:1.38;text-wrap:pretty">{{ c.label }}</div>
+                  <div data-hl-src="" style="margin-top:auto;padding-top:10px;border-top:1px solid transparent;font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.09em;color:#508C3C;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:10px">
+                    <span style="min-width:0;text-align:left;overflow-wrap:anywhere">{{ c.source }}</span>
+                    <span style="flex:none">→</span>
+                  </div>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showCityModal }}" hint-placeholder-val="{{ false }}">
+      <div data-city-popover="" style="{{ cityModal.posStyle }}">
+        <div style="flex:none;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px 0">
+          <div>
+            <div style="width:28px;height:4px;border-radius:2px;background:{{ cityModal.color }};margin-bottom:9px"></div>
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.012em;color:#231F20;line-height:1.2">{{ cityModal.title }}</div>
+            <div style="font-size:11.5px;color:#8A9AA4;margin-top:2px">{{ cityModal.count }} cities · placeholder list</div>
+          </div>
+          <button onclick="{{ closeCityModal }}" aria-label="Close" style="flex:none;border:1px solid #E1E8EE;background:#fff;border-radius:8px;width:26px;height:26px;font-size:12px;color:#5F7480;cursor:pointer;line-height:1" style-hover="background:#F1F5F8">✕</button>
+        </div>
+        <div style="overflow-y:auto;padding:12px 18px 16px">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px 16px">
+            <sc-for list="{{ cityModal.items }}" as="c" hint-placeholder-count="20">
+              <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#3B4A54;line-height:1.25">
+                <span style="width:4px;height:4px;border-radius:50%;background:{{ cityModal.color }};flex:none"></span>{{ c }}
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.s1 }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Research Background" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">RESEARCH BACKGROUND</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">A rigorous study of<br>200 cities worldwide</h2>
+
+        <p style="margin: 36px 0 0; font-size: 15px; line-height: 1.6; color: #3B4A54; text-wrap: pretty; text-align: justify">In the third quarter of 2026, ThoughtLab conducted a rigorous study of 200 cities worldwide to understand the progress urban leaders are making on developing people-first AI-powered cities. To provide city leaders with an actionable playbook, the study examined the most effective strategies and digital solutions used by cities to achieve their future goals, along with the challenges they face in achieving results. To facilitate rigorous benchmarking, our 2026 study analyzed cities across all regions, with a combined xxxx million residents—or xxxx% of the world’s population. This makes it one of the most comprehensive studies of smart cities ever conducted.</p>
+
+        <div style="margin-top:40px;display:flex;flex-wrap:wrap;align-items:stretch;gap:20px">
+            <div style="flex:3 1 620px;min-width:min(620px,100%);display:flex;flex-direction:column;background:#fff;border:1px solid #E1E8EE;border-radius:16px;overflow:hidden">
+            <div style="padding:18px 22px 0"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:14px"><div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase">Respondents by region</div></div></div>
+            <div style="flex:1 1 auto;width:100%;min-height:300px;position:relative;overflow:hidden">
+              <iframe data-region-map="" src="{{ mapSrc }}" title="Regions surveyed" style="width:100%;height:100%;border:0;display:block;position:absolute;inset:0"></iframe>
+            </div>
+            </div>
+            <div data-bg-exhibits="" style="flex:1 1 260px;min-width:min(260px,100%);max-width:310px;display:flex;flex-direction:column;gap:20px">
+
+              <div style="padding:12px 16px 12px;background:#fff;border:1px solid #E1E8EE;border-radius:16px">
+                <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase">Cities by population</div>
+                <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px">
+                  <sc-for list="{{ popRows }}" as="r" hint-placeholder-count="5">
+                    <div>
+                      <div style="display:flex;align-items:center;gap:8px">
+                        <span style="flex:none;width:96px;font-size:12px;color:#231F20;font-weight:700;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.label }} <span style="font-weight:400">{{ r.range }}</span></span>
+                        <div style="flex:1 1 auto;position:relative;height:11px">
+                          <div style="position:absolute;inset:0;border-radius:999px;background:#EDF1F4"></div>
+                          <div style="{{ r.barStyle }}"></div>
+                        </div>
+                        <span style="font-size: 12px; font-weight: 700; color: #231F20; flex: none">{{ r.pct }}</span>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="margin-top:12px;background:#FFFFFF;border:1px solid #E1E8EE;border-left:4px solid #086C94;padding:11px 14px">
+                  <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:18px;line-height:1;font-weight:800;letter-spacing:-.02em;color:#086C94">2.95 million</div>
+                  <div style="font-size: 12px; color: #3B4A54; margin-top: 6px; line-height: 1.35">Average city population</div>
+                </div>
+              </div>
+
+              <div style="padding:12px 16px 12px;flex:1 1 auto;background:#fff;border:1px solid #E1E8EE;border-radius:16px">
+                <div style="font-family: 'Archivo',Calibri,'Carlito',sans-serif; font-size: 13px; letter-spacing: .09em; font-weight: 700; color: #5F7480; text-transform: uppercase; width: 279px; height: 27px">CITIES BY ECONOMIC DEVELOPMENT</div>
+                <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;flex-wrap:wrap">
+                  <svg sc-camel-view-box="0 0 132 132" style="flex:none;width:132px;height:132px">
+                    <g fill="none" stroke-width="34">
+                      <circle cx="66" cy="66" r="46" stroke="#508C3C" stroke-dasharray="132.95 156.08" transform="rotate(-90 66 66)"></circle>
+                      <circle cx="66" cy="66" r="46" stroke="#D8DCE4" stroke-dasharray="156.08 132.95" transform="rotate(75.6 66 66)"></circle>
+                    </g>
+                    <text x="111.6" y="60.2" text-anchor="middle" dominant-baseline="middle" style="font-size:12px;font-weight:700;fill:#FFFFFF">46%</text>
+                    <text x="20.4" y="71.8" text-anchor="middle" dominant-baseline="middle" style="font-size:12px;font-weight:700;fill:#231F20">54%</text>
+                  </svg>
+                  <div style="flex:0 1 auto;display:flex;flex-direction:column;gap:9px">
+                    <div style="display:flex;align-items:center;gap:7px">
+                      <span style="font-family:'Material Symbols Rounded';font-size:19px;line-height:1;color:#B3BBC6;font-variation-settings:'FILL' 1;flex:none">apartment</span>
+                      <span style="font-size:12px;font-weight:700;color:#231F20;line-height:1.3">Advanced</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:7px">
+                      <span style="font-family:'Material Symbols Rounded';font-size:19px;line-height:1;color:#508C3C;font-variation-settings:'FILL' 0;flex:none">psychiatry</span>
+                      <span style="font-size:12px;font-weight:700;color:#231F20;line-height:1.3">Developing</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="background:#FFFFFF;border:1px solid #E1E8EE;border-left:4px solid #086C94;padding:11px 14px;margin-top:11px">
+                  <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:18px;line-height:1;font-weight:800;letter-spacing:-.02em;color:#086C94">$3.4 billion</div>
+                  <div style="font-size:12px;color:#3B4A54;margin-top:6px;line-height:1.35">Average FY2026 operating budget</div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:40px;align-items:stretch">
+          <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#3B4A54;text-wrap:pretty;text-align:justify"><i><span style="font-style: normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></i></p>
+          <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:20px 22px 22px;min-width:0;flex:1 1 auto">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase">RESPONDENT'S LEVEL OF KNOWLEDGE <br>ABOUT THEir CITY'S AI USE</div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-top:18px;flex-wrap:wrap">
+              <svg sc-camel-view-box="0 0 132 132" style="flex:none;width:132px;height:132px">
+                <g fill="none" stroke-width="34">
+                  <circle cx="66" cy="66" r="46" stroke="#086C94" stroke-dasharray="98.27 190.76" transform="rotate(-90 66 66)"></circle>
+                  <circle cx="66" cy="66" r="46" stroke="#136E85" stroke-dasharray="138.73 150.30" transform="rotate(32.4 66 66)"></circle>
+                  <circle cx="66" cy="66" r="46" stroke="#D8DCE4" stroke-dasharray="52.03 237.00" transform="rotate(205.2 66 66)"></circle>
+                </g>
+                <text x="106.3" y="43.8" text-anchor="middle" dominant-baseline="middle" style="font-size:12px;font-weight:700;fill:#FFFFFF">34%</text>
+                <text x="43.8" y="106.3" text-anchor="middle" dominant-baseline="middle" style="font-size:12px;font-weight:700;fill:#FFFFFF">48%</text>
+                <text x="41.4" y="27.1" text-anchor="middle" dominant-baseline="middle" style="font-size:12px;font-weight:700;fill:#231F20">18%</text>
+              </svg>
+              <div style="flex:0 1 auto;min-width:0;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-family:'Material Symbols Rounded';font-size:19px;line-height:1;color:#086C94;font-variation-settings:'FILL' 1;flex:none">lightbulb</span>
+                  <span style="font-size:12px;font-weight:700;color:#231F20;line-height:1.3">Very knowledgeable</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-family:'Material Symbols Rounded';font-size:19px;line-height:1;color:#136E85;font-variation-settings:'FILL' 0;flex:none">lightbulb</span>
+                  <span style="font-size:12px;font-weight:700;color:#231F20;line-height:1.3">Knowledgeable</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="font-family:'Material Symbols Rounded';font-size:19px;line-height:1;color:#8A9AA4;font-variation-settings:'FILL' 0;flex:none">help</span>
+                  <span style="font-size:12px;font-weight:700;color:#231F20;line-height:1.3">Not very knowledgeable</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+
+          <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:20px 22px 22px;flex:1.9 1 440px;min-width:0;display:flex;flex-direction:column">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase">Respondent's role in developing and implementing their city's AI solutions</div>
+            <div style="display:flex;flex-direction:column;gap:6px;margin:auto 0;flex:0 1 auto;min-height:270px">
+              <div style="flex:63 1 0;min-height:0;display:flex;gap:7px">
+                <sc-for list="{{ roleTreeTop }}" as="c" hint-placeholder-count="3">
+                  <div style="{{ c.cellStyle }}">
+                    <div style="{{ c.labelStyle }}">{{ c.label }}</div>
+                    <div>
+                      <div style="{{ c.ruleStyle }}"></div>
+                      <div style="{{ c.pctStyle }}">{{ c.pct }}</div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="flex:37 1 0;min-height:0;display:flex;gap:7px">
+                <sc-for list="{{ roleTreeBottom }}" as="c" hint-placeholder-count="3">
+                  <div style="{{ c.cellStyle }}">
+                    <div style="{{ c.labelStyle }}">{{ c.label }}</div>
+                    <div>
+                      <div style="{{ c.ruleStyle }}"></div>
+                      <div style="{{ c.pctStyle }}">{{ c.pct }}</div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+        <div style="background: #fff; border: 1px solid #E1E8EE; border-radius: 16px; padding: 20px 22px 24px; width: 864px; height: 558px">
+          <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase">Respondents by job title</div>
+            <div ref="{{ bubbleRef }}" style="{{ jobBubbleWrapStyle }}">
+              <div style="{{ jobBubbleInnerStyle }}">
+              <sc-for list="{{ jobBubbles }}" as="b" hint-placeholder-count="20">
+                <div style="{{ b.wrapStyle }}">
+                  <div style="{{ b.circleStyle }}" style-hover="transform:scale(1.1) translateY(-5px);box-shadow:0 14px 28px rgba(8,52,72,.28)">
+                    <sc-if value="{{ b.labelInside }}" hint-placeholder-val="{{ true }}">
+                      <div style="{{ b.labelStyle }}">{{ b.label }}</div>
+                    </sc-if>
+                    <div style="{{ b.pctStyle }}">{{ b.pct }}</div>
+                  </div>
+                  <sc-if value="{{ b.labelOutside }}" hint-placeholder-val="{{ false }}">
+                    <div style="{{ b.outLabelStyle }}">{{ b.label }}</div>
+                  </sc-if>
+                </div>
+              </sc-for>
+              </div>
+            </div>
+        </div>
+          <p style="flex:1 1 240px;min-width:0;margin:0;font-size:14px;line-height:1.6;color:#3B4A54;text-wrap:pretty;text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&nbsp;</p>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.s2 }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="01 AI priorities, perspectives, and challenges" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">CHAPTER 01 — AI PRIORITIES, PERSPECTIVES, AND CHALLENGES</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">What cities are trying to solve,<br>and what stands in the way</h2>
+        <p style="margin:36px 0 0;font-size:15.5px;line-height:1.6;color:#4A5A64;text-align:justify"><i style="font-style: normal;">Lorem-style placeholder for the chapter opener.&nbsp;</i>Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener.&nbsp;<i style="font-style: normal;">Two to three sentences setting up the urban challenges cities are pointing AI at today, the gap between today and their three-year plans, and the four families of obstacle they report.</i></p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px">
+          <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:24px 26px 26px">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase">Funding challenges</div>
+            <div style="font-size:13px;color:#8A9AA4;margin-top:3px;margin-bottom:20px">Top five selected, share of cities</div>
+            <dc-import name="RankBars" rows="{{ fundingChallengeRows }}" hint-size="100%,300px"></dc-import>
+            <div style="border-top:1px solid #E9EEF2;margin-top:16px;padding-top:11px;font-size:12px;color:#8A9AA4;line-height:1.45">Survey Q. When adopting AI, what are the biggest funding challenges that your city faces?</div>
+          </div>
+          <div style="background:radial-gradient(700px 320px at 90% -20%,rgba(80,140,60,.28),transparent 62%),linear-gradient(150deg,#0B5E7E,#062B39);border-radius:16px;padding:30px 34px 32px;color:#fff;display:flex;flex-direction:column;justify-content:center">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#A9CFDF;font-weight:700;margin-bottom:16px">EXECUTIVES SAY</div>
+            <div style="font-size:20px;line-height:1.5;color:#EAF3F6;max-width:52ch">“Placeholder quotation. A named city official on the gap between AI ambition and the governance, funding, and talent needed to deliver it — two to four sentences, carried verbatim from the interview programme.”</div>
+            <div style="font-size:13px;color:#9FC2D2;margin-top:20px;line-height:1.45">Name Surname · Chief AI Officer · City, Country</div>
+          </div>
+        </div>
+
+        
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.s3 }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="02 AI progress and maturity" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">CHAPTER 02 — AI PROGRESS AND MATURITY</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">How far cities have come</h2>
+        
+
+        
+
+        
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px">
+          
+          
+        </div>
+
+        
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.s4 }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="03 AI innovation across urban domains" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">CHAPTER 03 — DRIVING AI INNOVATION ACROSS URBAN DOMAINS</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">Where AI is actually<br>being deployed</h2>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.s5 }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="04 Use of AI technology and partners" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">CHAPTER 04 — USE OF AI TECHNOLOGY AND PARTNERS</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">The technologies in play and<br>the ecosystem behind them</h2>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.s6 }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="05 Benefits and ROI" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">CHAPTER 05 — BENEFITS AND ROI</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">What cities are<br>getting back</h2>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.index }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="City Index" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">EXPLORE — CITY INDEX</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">All 200 cities surveyed</h2>
+        <p style="margin:36px 0 0;font-size:15.5px;line-height:1.6;color:#4A5A64;text-align:justify">Search by name or country, filter by segment, and open any card to read its profile.<br></p>
+        
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:26px">
+          <input value="{{ idxQuery }}" oninput="{{ onIdxQuery }}" placeholder="Search cities or countries…" style="flex:1;min-width:240px;max-width:380px;border:1px solid #C6D4DC;border-radius:10px;padding:12px 15px;font-family:Calibri,'Carlito',sans-serif;font-size:14px;color:#231F20;outline:none;background:#fff">
+          <div style="font-size:14px;color:#5F7480;font-weight:600">{{ idxResultLabel }}</div>
+          <button onclick="{{ clearIdx }}" style="margin-left:auto;background:transparent;border:0;color:#086C94;font-size:13px;font-weight:700;cursor:pointer;font-family:Calibri,'Carlito',sans-serif;text-decoration:underline">Reset filters</button>
+        </div>
+
+        <div style="margin-top:16px;background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ idxFilterRows }}" as="row" hint-placeholder-count="3">
+            <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+              <span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.13em;color:#8A9AA4;font-weight:700;width:84px;flex:none">{{ row.label }}</span>
+              <div style="display:flex;flex-wrap:wrap;gap:7px">
+                <sc-for list="{{ row.opts }}" as="o" hint-placeholder-count="6">
+                  <button onclick="{{ o.go }}" style="{{ o.style }}">{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ idxHasResults }}" hint-placeholder-val="{{ true }}">
+          <sc-for list="{{ idxGroups }}" as="g" hint-placeholder-count="3">
+            <sc-if value="{{ g.show }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <div style="display:flex;align-items:center;gap:12px;margin:30px 0 13px">
+                  <span style="{{ g.swatchStyle }}"></span>
+                  <span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:15px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#0B4A63">{{ g.label }}</span>
+                  <span style="font-size:13px;color:#8A9AA4;white-space:nowrap">{{ g.count }}</span>
+                  
+                  <span style="flex:1;min-width:16px;height:1px;background:#E1E8EE"></span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px">
+                  <sc-for list="{{ g.cities }}" as="city" hint-placeholder-count="10">
+                    <button onclick="{{ city.go }}" style="{{ city.cardStyle }}" style-hover="box-shadow:0 4px 14px rgba(11,74,99,.12)">
+                      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+                        <span style="{{ city.nameStyle }}">{{ city.name }}</span>
+                        <span style="{{ city.chipStyle }}">{{ city.tier }}</span>
+                      </div>
+                      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:22px">
+                        <span style="{{ city.metaStyle }}">{{ city.meta }}</span>
+                        <span style="{{ city.scoreStyle }}">{{ city.score }}</span>
+                      </div>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ idxEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:64px 20px;border:1px solid #E1E8EE;border-radius:16px;background:#fff;margin-top:22px">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:20px;color:#0B4A63;font-weight:700;letter-spacing:-.015em">No cities match those filters</div>
+            <div style="font-size:14px;color:#8A9AA4;margin-top:7px">Try a different search term, region, size, or economy.</div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.cases }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="City case studies" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">EXPLORE THE DATA — CITY CASE STUDIES</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">How individual cities<br>are putting AI to work</h2>
+        <p style="margin:36px 0 0;font-size:15.5px;line-height:1.6;color:#4A5A64;text-align:justify"><i style="font-style: normal;">Lorem-style placeholder.&nbsp;</i><span>Lorem-style placeholder for the chapter opener. </span>Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener.&nbsp;<span>Lorem-style placeholder for the chapter opener. </span>Lorem-style placeholder for the chapter opener. Lorem-style placeholder for the chapter opener.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.plans }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="City plans" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">EXPLORE THE DATA — CITY PLANS</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">What each city<br>is planning</h2>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.perspectives }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="City leader perspectives" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">EXPLORE THE DATA — CITY LEADER PERSPECTIVES</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">In their<br>own words</h2>
+        <p style="margin:36px 0 0;font-size:15.5px;line-height:1.6;color:#4A5A64;text-align:justify">Quotations from the interview programme and the survey's open-ended questions — the most effective AI solution each city has deployed, and the lessons it has learned. Searchable by city, domain, and theme.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-top:30px">
+          <sc-for list="{{ perspectiveCards }}" as="q" hint-placeholder-count="6">
+            <div style="background:#fff;border:1px solid #E1E8EE;border-top:4px solid #086C94;border-radius:16px;padding:24px 26px 26px;display:flex;flex-direction:column;gap:14px">
+              <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.13em;color:#508C3C;font-weight:700">{{ q.theme }}</div>
+              <div style="font-size:15px;line-height:1.55;color:#3B4A54">{{ q.text }}</div>
+              <div style="margin-top:auto;padding-top:13px;border-top:1px solid #EEF2F5;font-size:12.5px;color:#8A9AA4;line-height:1.45">Name Surname · Title · City, Country</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:16px;font-size:12px;color:#8A9AA4;line-height:1.5">Placeholder quotations. Real attributions come from the interview programme and open-ended survey responses.</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.survey }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Survey data" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">EXPLORE THE DATA — SURVEY DATA</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">Every question,<br>queryable</h2>
+        <p style="margin:36px 0 0;font-size:15.5px;line-height:1.6;color:#4A5A64;text-align:justify">Pick any question from the 200-city survey and see how every city answered it — sortable, searchable, and re-cuttable by segment. This is the Tableau crosstab layer, surfaced inline.</p>
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:22px;margin-top:30px;align-items:start">
+          <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:16px 12px">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.13em;color:#8A9AA4;font-weight:700;padding:6px 10px 10px">QUESTION THEMES</div>
+            <sc-for list="{{ surveyThemes }}" as="t" hint-placeholder-count="6">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:10px;background:#F7FAFB;margin-bottom:6px">
+                <span style="font-size:12px;color:#231F20;line-height:1.35;min-width:0">{{ t.label }}</span>
+                <span style="flex:none;font-size:12px;color:#C9D9E1;font-weight:700">{{ t.count }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:24px 26px 26px">
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase">Per-city responses</div>
+            <div style="font-size:13px;color:#8A9AA4;margin-top:3px;margin-bottom:20px">Select a question to see all 200 cities ranked by their answer</div>
+            <div style="display:flex;flex-direction:column;gap:1px;background:#EEF2F5;border:1px solid #EEF2F5;border-radius:12px;overflow:hidden">
+              <sc-for list="{{ surveyRows }}" as="r" hint-placeholder-count="10">
+                <div style="display:flex;align-items:center;gap:14px;background:#fff;padding:11px 16px">
+                  <span style="flex:none;width:28px;font-size:12px;color:#C9D9E1;font-weight:700">{{ r.rank }}</span>
+                  <span style="flex:none;width:150px;font-size:12px;color:#231F20">{{ r.name }}</span>
+                  <span style="flex:none;width:110px;font-size:12.5px;color:#8A9AA4">{{ r.region }}</span>
+                  <div style="flex:1;min-width:0;height:11px;background:#EDF1F4;border-radius:999px"></div>
+                  <span style="flex:none;font-size:12.5px;color:#C9D9E1;font-weight:700">——</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="border-top:1px solid #E9EEF2;margin-top:16px;padding-top:11px;font-size:12px;color:#8A9AA4;line-height:1.45">Placeholder. Question metadata and per-city microdata load once the survey closes.</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ show.benchmark }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Benchmarking tool" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">BENCHMARK YOUR CITY</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">Where would<br>your city land?</h2>
+        <p style="margin:36px 0 0;font-size:15px;line-height:1.6;color:#3B4A54;text-wrap:pretty;text-align:justify">Answer four questions, one for each pillar of the maturity model, and we will place your city on the same 0–100 scale the 200 surveyed cities were scored on.</p>
+
+        <sc-if value="{{ benchNotDone }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-top:28px;display:flex;flex-direction:column;gap:16px">
+            <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:24px 26px">
+              <div style="display:flex;gap:11px;align-items:baseline;margin-bottom:16px;flex-wrap:wrap"><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:12px;letter-spacing:.12em;color:#508C3C">PILLAR 1</span><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:17px;color:#0B4A63;letter-spacing:-.015em">How widely does your city use AI today?</span></div>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <sc-for list="{{ benchUsageOpts }}" as="o" hint-placeholder-count="5">
+                  <button onclick="{{ o.go }}" style="{{ o.style }}"><span style="{{ o.dotStyle }}"></span>{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:24px 26px">
+              <div style="display:flex;gap:11px;align-items:baseline;margin-bottom:4px;flex-wrap:wrap"><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:12px;letter-spacing:.12em;color:#508C3C">PILLAR 2</span><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:17px;color:#0B4A63;letter-spacing:-.015em">In which urban domains do you use AI?</span></div>
+              <div style="font-size:12.5px;color:#8A9AA4;margin-bottom:16px">Select all that apply</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:9px">
+                <sc-for list="{{ benchDomainChips }}" as="o" hint-placeholder-count="6">
+                  <button onclick="{{ o.go }}" style="{{ o.style }}"><span style="{{ o.chkStyle }}">{{ o.mark }}</span>{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:24px 26px">
+              <div style="display:flex;gap:11px;align-items:baseline;margin-bottom:4px;flex-wrap:wrap"><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:12px;letter-spacing:.12em;color:#508C3C">PILLAR 3</span><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:17px;color:#0B4A63;letter-spacing:-.015em">Which actions are you taking to ensure the responsible use of AI?</span></div>
+              <div style="font-size:12.5px;color:#8A9AA4;margin-bottom:16px">Select all that apply</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:9px">
+                <sc-for list="{{ benchRespChips }}" as="o" hint-placeholder-count="6">
+                  <button onclick="{{ o.go }}" style="{{ o.style }}"><span style="{{ o.chkStyle }}">{{ o.mark }}</span>{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:24px 26px">
+              <div style="display:flex;gap:11px;align-items:baseline;margin-bottom:16px;flex-wrap:wrap"><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:12px;letter-spacing:.12em;color:#508C3C">PILLAR 4</span><span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:17px;color:#0B4A63;letter-spacing:-.015em">How mature is your data and technology foundation?</span></div>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <sc-for list="{{ benchFoundationOpts }}" as="o" hint-placeholder-count="4">
+                  <button onclick="{{ o.go }}" style="{{ o.style }}"><span style="{{ o.dotStyle }}"></span>{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:16px;margin-top:6px;flex-wrap:wrap">
+              <button onclick="{{ benchRun }}" style="{{ benchRunStyle }}">See where your city lands</button>
+              <span style="font-size:12.5px;color:#8A9AA4">Pillars 2 and 3 can stay empty if AI is not used there yet.</span>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ benchDone }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:28px">
+            <div style="background:radial-gradient(700px 340px at 88% -20%,rgba(80,140,60,.28),transparent 62%),linear-gradient(150deg,#0B5E7E,#062B39);border-radius:20px;padding:34px 38px;color:#fff">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:18px">
+                <div>
+                  <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#9FC2D2;font-weight:700;margin-bottom:8px">Your estimated maturity tier</div>
+                  <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:38px;line-height:1;letter-spacing:-.02em;color:{{ benchTierColor }}">{{ benchTier }}</div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:46px;line-height:1;letter-spacing:-.02em;color:#fff">{{ benchScorePct }}</div>
+                  <div style="font-size:12px;color:#9FC2D2;margin-top:4px">maturity score · 0–100</div>
+                </div>
+              </div>
+              <div style="margin-top:20px;background:rgba(255,255,255,.14);border-radius:999px;height:12px;overflow:hidden"><div style="{{ benchGaugeStyle }}"></div></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:#86A4B4;margin-top:8px;font-weight:700"><span>Adopter · up to 33.7</span><span>Advancer · 33.8–60.6</span><span>Leader · 60.7 and above</span></div>
+              <p style="font-size:14.5px;line-height:1.6;color:#DCEAE9;margin:20px 0 0;max-width:74ch;text-wrap:pretty">{{ benchTierMsg }}</p>
+            </div>
+
+            <div style="background:#fff;border:1px solid #E1E8EE;border-radius:16px;padding:26px 28px;margin-top:16px">
+              <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:700;color:#5F7480;text-transform:uppercase;margin-bottom:18px">Your four-pillar profile</div>
+              <div style="display:flex;flex-direction:column;gap:15px">
+                <sc-for list="{{ benchPillars }}" as="p" hint-placeholder-count="4">
+                  <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr 44px;gap:14px;align-items:center">
+                    <div style="font-size:13px;color:#231F20;font-weight:700">{{ p.name }}</div>
+                    <div style="background:#EDF1F4;border-radius:6px;height:18px;overflow:hidden"><div style="{{ p.barStyle }}"></div></div>
+                    <div style="font-size:13px;font-weight:700;color:#0B4A63;text-align:right;font-variant-numeric:tabular-nums">{{ p.valTxt }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <p style="margin:20px 0 0;max-width:80ch;font-size:14px;line-height:1.6;color:#5F7480;text-wrap:pretty">Indicative estimate based on the four equally weighted pillars of the maturity model. It is a directional self-assessment showing roughly where your city sits; the full benchmark scores each city from its detailed survey responses.</p>
+
+            <div style="display:flex;gap:11px;margin-top:20px;flex-wrap:wrap">
+              <button onclick="{{ benchReset }}" style="background:#0B4A63;color:#fff;border:0;font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:700;font-size:14px;padding:13px 24px;border-radius:999px;cursor:pointer" style-hover="background:#086C94">Start over</button>
+              <button onclick="{{ go.index }}" style="background:#fff;color:#0B4A63;border:1px solid #9CCBD9;font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:700;font-size:14px;padding:13px 24px;border-radius:999px;cursor:pointer" style-hover="border-color:#086C94">Find peer cities in the index</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+        </sc-if>
+      </main></div>
+    
+
+    <sc-if value="{{ show.about }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="About the study" style="max-width:1440px;margin:0 auto;padding:44px 54px 72px;animation:tlRise .2s ease">
+        <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#508C3C;font-weight:700;margin-bottom:12px">ABOUT</div>
+        <h2 style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:clamp(26px,2.7vw,38px);line-height:1;letter-spacing:-.022em;margin:0;color:#0B4A63;text-transform:uppercase;text-wrap:balance">Methodology<br>and sponsors</h2>
+        <p style="margin:36px 0 0;font-size:15.5px;line-height:1.6;color:#4A5A64;text-align:justify">ThoughtLab surveyed 200 cities worldwide on their progress towards becoming people-first, AI-powered cities — places that keep citizen needs, equity, and well-being at the centre of their AI strategy. Respondents were senior officials with knowledge of, and decision rights over, their city's AI programme.</p>
+        <p style="margin:14px 0 0;font-size:15.5px;line-height:1.6;color:#4A5A64;text-align:justify"><i>Lorem-style placeholder. Field dates, sample construction, weighting, regional and size-band definitions, and the interview programme will be described here.</i></p>
+        <div style="background:linear-gradient(160deg,#ECF4F7,#E3EFF3);border:1px solid #D5E4EA;border-radius:16px;padding:24px 26px;margin-top:26px">
+          <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11.5px;letter-spacing:.15em;color:#086C94;font-weight:700;margin-bottom:14px">SPONSORS</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 12px">
+            <sc-for list="{{ sponsorList }}" as="s" hint-placeholder-count="8">
+              <span style="border:1px solid #C6D4DC;background:#fff;border-radius:10px;padding:10px 18px;font-size:14px;color:#0B4A63;font-weight:600">{{ s }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+  
+
+  <button onclick="{{ toggleAsk }}" style="{{ fabStyle }}" style-hover="filter:brightness(1.06);transform:translateY(-2px)">
+    <svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.7 9.7 0 0 1-3.9-.8L3 20.6l1.5-4.4A8.3 8.3 0 0 1 3 11.5a8.4 8.4 0 0 1 9-8.4 8.4 8.4 0 0 1 9 8.4Z"></path></svg>
+    <span>Ask the study</span>
+  </button>
+
+  <div style="{{ askPanelStyle }}">
+    <div style="display:flex;align-items:center;gap:12px;padding:18px 20px;background:linear-gradient(150deg,#0B5E7E,#062B39);color:#fff;flex:none">
+      <span style="width:28px;height:28px;flex:none;border-radius:9px;background:linear-gradient(140deg,#508C3C,#086C94)"></span>
+      <div style="flex:1;font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.015em">Ask the study</div>
+      <button onclick="{{ closeAsk }}" style="background:rgba(255,255,255,.16);border:0;border-radius:8px;color:#fff;width:28px;height:28px;cursor:pointer;font-size:15px;line-height:1;font-family:Calibri,'Carlito',sans-serif">✕</button>
+    </div>
+    <div class="tl-scroll" style="flex:1;overflow-y:auto;padding:20px;background:#F6F6F7">
+      <div style="background:linear-gradient(160deg,#ECF4F7,#E3EFF3);border:1px solid #D5E4EA;border-left:4px solid #086C94;border-radius:12px;padding:16px 18px;font-size:13.5px;line-height:1.55;color:#3B4A54">
+        <b>Not yet active.</b> The conversational layer answers from the study's own findings and cites the exhibit it drew from. It switches on when the survey data is loaded.
+      </div>
+      <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.13em;color:#8A9AA4;font-weight:700;margin:24px 0 10px">QUESTIONS IT WILL ANSWER</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <sc-for list="{{ sampleQs }}" as="q" hint-placeholder-count="5">
+          <div style="background:#fff;border:1px solid #E1E8EE;border-radius:12px;padding:12px 14px;font-size:13.5px;color:#8A9AA4;line-height:1.45">{{ q }}</div>
+        </sc-for>
+      </div>
+      <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:11px;letter-spacing:.13em;color:#8A9AA4;font-weight:700;margin:24px 0 10px">ANSWER FORMAT</div>
+      <div style="background:#fff;border:1px solid #E1E8EE;border-radius:12px;padding:14px 16px">
+        <div style="font-size:13.5px;line-height:1.55;color:#C9D9E1">—————— ——— ———— —— ———— ————— ——— —— ———— ——————— —— ——— ———— ————.</div>
+        <div style="border-top:1px solid #EEF2F5;margin-top:13px;padding-top:11px">
+          <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:10px;letter-spacing:.13em;color:#8A9AA4;font-weight:700;margin-bottom:7px">DRAWN FROM</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="font-size:12px;color:#8A9AA4;background:#F1F5F8;border:1px solid #E1E8EE;border-radius:999px;padding:4px 11px">Chapter — exhibit</span>
+            <span style="font-size:12px;color:#8A9AA4;background:#F1F5F8;border:1px solid #E1E8EE;border-radius:999px;padding:4px 11px">Survey Q. ——</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:none;padding:14px 16px;background:#fff;border-top:1px solid #E1E8EE">
+      <div style="display:flex;gap:9px">
+        <input disabled="" placeholder="Available once the data lands" style="flex:1;border:1px solid #E1E8EE;border-radius:10px;padding:11px 13px;font-family:Calibri,'Carlito',sans-serif;font-size:13.5px;color:#8A9AA4;background:#F6F6F7;outline:none">
+        <button disabled="" style="background:#DCE4EA;color:#fff;border:0;border-radius:10px;padding:11px 18px;font-family:Calibri,'Carlito',sans-serif;font-size:14px;font-weight:700;cursor:not-allowed">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ profileOpen }}" hint-placeholder-val="{{ false }}">
+    <div onclick="{{ closeProfile }}" style="position:fixed;inset:0;z-index:95;background:rgba(11,45,58,.55);display:flex;align-items:center;justify-content:center;padding:28px;animation:tlFade .16s ease">
+      <div onclick="{{ stopProp }}" class="tl-scroll" style="background:#fff;width:620px;max-width:94vw;max-height:88vh;overflow-y:auto;border-radius:20px;box-shadow:0 30px 70px rgba(6,43,57,.4)">
+        <div style="{{ profile.headStyle }}">
+          <div style="position:absolute;inset:0">
+            <image-slot id="{{ profile.photoId }}" shape="rect" placeholder="Drop a city photo"></image-slot>
+          </div>
+          <div style="position:absolute;inset:0;background:{{ profile.scrim }};pointer-events:none"></div>
+          <div style="position:relative;pointer-events:none;min-height:290px;display:flex;flex-direction:column;justify-content:flex-start;padding:26px 32px 24px">
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <span style="{{ profile.tierChipStyle }}">{{ profile.tier }}</span>
+              <span style="display:flex;align-items:center;gap:5px">
+                <span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:13px;color:#fff;font-weight:700;letter-spacing:-.005em">{{ profile.country }}</span>
+                <span style="font-size:13px;color:rgba(255,255,255,.6)">·</span>
+                <span style="font-size:13px;color:rgba(255,255,255,.82)">{{ profile.region }}</span>
+              </span>
+            </div>
+            <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-weight:800;font-size:40px;line-height:1;letter-spacing:-.03em;margin-top:12px;text-transform:uppercase;text-shadow:0 2px 18px rgba(4,26,33,.5)">{{ profile.name }}</div>
+          </div>
+        </div>
+        <div style="padding:24px 32px 30px">
+          <div style="display:flex;align-items:flex-end;gap:16px">
+            <span style="{{ profile.scoreStyle }}">{{ profile.score }}</span>
+            <span style="display:flex;flex-direction:column;gap:2px;padding-bottom:5px">
+              <span style="font-size:13px;color:#5F7480">reconstructed maturity score</span>
+              <span style="font-size:13px;color:#5F7480">rank {{ profile.rank }}</span>
+            </span>
+          </div>
+          <div style="margin-top:16px;height:9px;border-radius:999px;background:#EDF2F5;overflow:hidden">
+            <div style="{{ profile.gaugeStyle }}"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:7px;font-size:11.5px;color:#8A9AA4">
+            <span>Adopter</span><span>Advancer</span><span>Leader</span>
+          </div>
+          <div style="height:1px;background:#EEF2F5;margin:24px 0 22px"></div>
+          <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:15.5px;font-weight:700;color:#231F20;letter-spacing:-.01em;margin-bottom:14px">Four-pillar profile</div>
+          <div style="display:flex;flex-direction:column;gap:11px">
+            <sc-for list="{{ profile.pillars }}" as="p" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:1fr 250px 38px;gap:14px;align-items:center">
+                <span style="font-size:13.5px;color:#231F20;line-height:1.3">{{ p.name }}</span>
+                <span style="height:15px;border-radius:5px;background:#EDF2F5;display:block;overflow:hidden">
+                  <span style="{{ p.fillStyle }}"></span>
+                </span>
+                <span style="{{ p.valStyle }}">{{ p.value }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:15.5px;font-weight:700;color:#231F20;letter-spacing:-.01em;margin:28px 0 14px">Cities ranked nearby</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ profile.peers }}" as="p" hint-placeholder-count="4">
+              <button onclick="{{ p.go }}" style="display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;background:#F7FAFB;border:1px solid #E1E8EE;border-radius:12px;padding:11px 15px;font-family:Calibri,'Carlito',sans-serif;transition:border-color .14s ease" style-hover="border-color:#9CCBD9;background:#fff">
+                <span style="font-size:12.5px;color:#8A9AA4;font-weight:700;font-variant-numeric:tabular-nums;flex:none;width:38px">{{ p.rank }}</span>
+                <span style="{{ p.dotStyle }}"></span>
+                <span style="font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:15px;color:#231F20;font-weight:700;letter-spacing:-.015em;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.name }}</span>
+                <span style="{{ p.scoreStyle }}">{{ p.score }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="border-top:1px solid #EEF2F5;margin-top:24px;padding-top:14px;font-size:12px;color:#8A9AA4;line-height:1.55;font-style:italic">Reconstructed from the raw survey responses using a four-pillar, equal-weight model — an interim estimate, not ThoughtLab's official published score. Tiers reflect each city's percentile (top 20% / middle 60% / bottom 20%).</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+
+</x-dc>
+
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+
+const REGIONS = ['North America', 'Latin America', 'Europe', 'Asia-Pacific', 'Middle East', 'Africa'];
+const SIZES = ['Small', 'Medium', 'Large', 'Mega'];
+// Size bands come from metro-area population (Mega 10M+, Large 3-10M, Medium 1-3M, Small under 1M) -
+// sample-frame metadata, not survey findings. Economy follows the IMF advanced-economy classification.
+const ADVANCED = ['United States','Canada','United Kingdom','Ireland','France','Germany','Netherlands','Belgium','Spain','Portugal','Italy','Switzerland','Austria','Sweden','Denmark','Norway','Finland','Estonia','Czechia','Japan','South Korea','Taiwan','Singapore','Australia','New Zealand','Israel','United Arab Emirates','Qatar','Kuwait','Bahrain','Puerto Rico'];
+
+const RAW = {
+  'North America': 'New York/United States/Mega,Los Angeles/United States/Mega,Chicago/United States/Large,Houston/United States/Large,Phoenix/United States/Large,Philadelphia/United States/Large,San Antonio/United States/Medium,San Diego/United States/Large,Dallas/United States/Large,San Jose/United States/Medium,Austin/United States/Medium,Jacksonville/United States/Medium,San Francisco/United States/Large,Columbus/United States/Medium,Charlotte/United States/Medium,Seattle/United States/Large,Denver/United States/Large,Boston/United States/Large,Nashville/United States/Medium,Detroit/United States/Large,Portland/United States/Medium,Las Vegas/United States/Medium,Miami/United States/Large,Atlanta/United States/Large,Raleigh/United States/Medium,Minneapolis/United States/Large,Toronto/Canada/Large,Montreal/Canada/Large,Vancouver/Canada/Medium,Calgary/Canada/Medium,Honolulu/United States/Small,Oakland/United States/Medium,Orlando/United States/Medium',
+  'Latin America': 'Mexico City/Mexico/Mega,Guadalajara/Mexico/Large,Monterrey/Mexico/Large,São Paulo/Brazil/Mega,Rio de Janeiro/Brazil/Mega,Brasília/Brazil/Large,Belo Horizonte/Brazil/Large,Curitiba/Brazil/Large,Porto Alegre/Brazil/Large,Buenos Aires/Argentina/Mega,Córdoba/Argentina/Medium,Santiago/Chile/Large,Lima/Peru/Mega,Bogotá/Colombia/Mega,Medellín/Colombia/Large,Cali/Colombia/Large,Quito/Ecuador/Medium,Guayaquil/Ecuador/Large,Montevideo/Uruguay/Medium,Asunción/Paraguay/Medium,La Paz/Bolivia/Medium,San José/Costa Rica/Medium,Panama City/Panama/Medium,Santo Domingo/Dominican Republic/Large,San Juan/Puerto Rico/Medium',
+  'Europe': 'London/United Kingdom/Mega,Manchester/United Kingdom/Medium,Birmingham/United Kingdom/Medium,Glasgow/United Kingdom/Medium,Dublin/Ireland/Medium,Paris/France/Mega,Lyon/France/Medium,Marseille/France/Medium,Toulouse/France/Medium,Berlin/Germany/Large,Munich/Germany/Large,Hamburg/Germany/Large,Frankfurt/Germany/Medium,Cologne/Germany/Medium,Amsterdam/Netherlands/Medium,Rotterdam/Netherlands/Medium,The Hague/Netherlands/Small,Brussels/Belgium/Medium,Antwerp/Belgium/Small,Madrid/Spain/Large,Barcelona/Spain/Large,Valencia/Spain/Medium,Seville/Spain/Medium,Lisbon/Portugal/Large,Porto/Portugal/Medium,Rome/Italy/Large,Milan/Italy/Large,Turin/Italy/Medium,Naples/Italy/Large,Zurich/Switzerland/Medium,Geneva/Switzerland/Small,Vienna/Austria/Medium,Stockholm/Sweden/Medium,Copenhagen/Denmark/Medium,Oslo/Norway/Medium,Helsinki/Finland/Medium,Tallinn/Estonia/Small,Riga/Latvia/Small,Vilnius/Lithuania/Small,Warsaw/Poland/Large,Kraków/Poland/Medium,Prague/Czechia/Medium,Budapest/Hungary/Large,Bucharest/Romania/Medium,Oxford/United Kingdom/Small,Wroclaw/Poland/Medium',
+  'Asia-Pacific': 'Tokyo/Japan/Mega,Osaka/Japan/Mega,Yokohama/Japan/Large,Fukuoka/Japan/Medium,Seoul/South Korea/Mega,Busan/South Korea/Large,Beijing/China/Mega,Shanghai/China/Mega,Shenzhen/China/Mega,Guangzhou/China/Mega,Chengdu/China/Mega,Hangzhou/China/Mega,Wuhan/China/Mega,Hong Kong/China/Large,Taipei/Taiwan/Large,Kaohsiung/Taiwan/Medium,Singapore/Singapore/Large,George Town/Malaysia/Medium,Jakarta/Indonesia/Mega,Surabaya/Indonesia/Large,Bandung/Indonesia/Medium,Bangkok/Thailand/Mega,Chiang Mai/Thailand/Medium,Manila/Philippines/Mega,Cebu City/Philippines/Large,Ho Chi Minh City/Vietnam/Mega,Hanoi/Vietnam/Large,Da Nang/Vietnam/Medium,Phnom Penh/Cambodia/Medium,Mumbai/India/Mega,Delhi/India/Mega,Bengaluru/India/Mega,Hyderabad/India/Mega,Chennai/India/Mega,Pune/India/Large,Ahmedabad/India/Large,Kolkata/India/Mega,Jaipur/India/Large,Surat/India/Large,Karachi/Pakistan/Mega,Lahore/Pakistan/Mega,Islamabad/Pakistan/Medium,Dhaka/Bangladesh/Mega,Chattogram/Bangladesh/Large,Colombo/Sri Lanka/Large,Kathmandu/Nepal/Medium,Sydney/Australia/Large,Melbourne/Australia/Large,Brisbane/Australia/Medium,Perth/Australia/Medium,Auckland/New Zealand/Medium,Wellington/New Zealand/Small',
+  'Middle East': 'Dubai/United Arab Emirates/Large,Abu Dhabi/United Arab Emirates/Medium,Riyadh/Saudi Arabia/Large,Jeddah/Saudi Arabia/Large,Dammam/Saudi Arabia/Medium,Doha/Qatar/Medium,Kuwait City/Kuwait/Large,Manama/Bahrain/Small,Muscat/Oman/Medium,Tel Aviv/Israel/Large,Jerusalem/Israel/Medium,Haifa/Israel/Medium,Amman/Jordan/Large,Beirut/Lebanon/Medium,Istanbul/Türkiye/Mega,Ankara/Türkiye/Large,Izmir/Türkiye/Large,Baku/Azerbaijan/Medium,Tbilisi/Georgia/Medium',
+  'Africa': 'Cairo/Egypt/Mega,Alexandria/Egypt/Large,Giza/Egypt/Large,Casablanca/Morocco/Large,Rabat/Morocco/Medium,Marrakesh/Morocco/Medium,Tunis/Tunisia/Medium,Algiers/Algeria/Large,Lagos/Nigeria/Mega,Abuja/Nigeria/Large,Port Harcourt/Nigeria/Large,Accra/Ghana/Medium,Abidjan/Côte d’Ivoire/Large,Dakar/Senegal/Large,Nairobi/Kenya/Large,Mombasa/Kenya/Medium,Kampala/Uganda/Large,Kigali/Rwanda/Medium,Dar es Salaam/Tanzania/Large,Addis Ababa/Ethiopia/Large,Johannesburg/South Africa/Large,Cape Town/South Africa/Large,Durban/South Africa/Large,Pretoria/South Africa/Medium,Lusaka/Zambia/Large'
+};
+
+// one colour per maturity level, used for the card's left rule, chip and score
+const MATURITY_SCALE = 'linear-gradient(90deg,#8A9AA4 0%,#6D93A6 26%,#2C9CB8 52%,#3E9A76 76%,#508C3C 100%)';
+function maturityFill(score, h) {
+  const w = Math.max(2, Math.min(100, score));
+  return 'display:block;height:100%;width:' + w + '%;border-radius:999px;background-image:' + MATURITY_SCALE +
+    ';background-size:' + (10000 / w).toFixed(1) + '% 100%;background-repeat:no-repeat';
+}
+
+const TIERS = [
+  { key: 'Leaders', one: 'Leader', blurb: '',
+    accent: '#508C3C', ink: '#3D6E2C', deep: '#2C5A24', chipBg: '#EDF4E8', swatch: '#508C3C' },
+  { key: 'Advancers', one: 'Advancer', blurb: 'Building momentum across capability areas — placeholder assignment',
+    accent: '#2C9CB8', ink: '#136E85', deep: '#0B5468', chipBg: '#EAF5F8', swatch: '#2C9CB8' },
+  { key: 'Adopters', one: 'Adopter', blurb: 'Early in the journey, foundations being laid — placeholder assignment',
+    accent: '#8A9AA4', ink: '#48546C', deep: '#3B4A54', chipBg: '#F1F5F8', swatch: '#8A9AA4' }
+];
+
+const CITIES = (function () {
+  const out = [];
+  REGIONS.forEach(function (region) {
+    RAW[region].split(',').forEach(function (entry) {
+      const parts = entry.split('/');
+      out.push({
+        name: parts[0], country: parts[1], region: region, size: parts[2],
+        economy: ADVANCED.indexOf(parts[1]) >= 0 ? 'Advanced' : 'Emerging'
+      });
+    });
+  });
+  // Placeholder maturity: deterministic pseudo-random, one third per tier.
+  const order = out.map(function (c, i) { return { i: i, k: (c.name.charCodeAt(0) * 31 + c.name.length * 17 + i * 53) % 997 }; });
+  order.sort(function (a, b) { return a.k - b.k; });
+  order.forEach(function (o, rank) { out[o.i].tier = TIERS[Math.floor(rank / (out.length / 3))].key; });
+  // Placeholder maturity score, banded to the tier it sits in (Adopters up to 33.7,
+  // Advancers 33.8-60.6, Leaders 60.7 and above).
+  const BAND = { Leaders: [60.7, 89.4], Advancers: [33.8, 60.6], Adopters: [12.5, 33.7] };
+  out.forEach(function (c, i) {
+    const b = BAND[c.tier];
+    const h = (c.name.charCodeAt(0) * 71 + (c.name.charCodeAt(1) || 0) * 13 + c.name.length * 29 + i * 47) % 1000;
+    out[i].score = Math.round((b[0] + (b[1] - b[0]) * (h / 999)) * 10) / 10;
+  });
+  return out;
+})();
+
+// Placeholder ranking: every city ordered by its reconstructed score.
+const RANKED = CITIES.slice().sort(function (a, b) { return b.score - a.score; });
+RANKED.forEach(function (c, i) { c.rank = i + 1; });
+
+const PILLARS = ['Use of AI', 'Domain breadth', 'Responsible AI', 'Future-ready foundation'];
+function pillarVals(c) {
+  return PILLARS.map(function (p, k) {
+    const h = (c.name.charCodeAt(0) * (17 + k * 7) + c.name.length * (23 + k * 5) + p.length * 31) % 101;
+    return Math.max(0, Math.min(100, Math.round(c.score * 0.6 + h * 0.45)));
+  });
+}
+
+const CHAPTERS = [
+  { key: 's1', num: null, label: 'Research background' },
+  { key: 's2', num: '01', label: 'AI perspectives and challenges' },
+  { key: 's3', num: '02', label: 'AI progress and maturity' },
+  { key: 's4', num: '03', label: 'AI innovation across urban domains' },
+  { key: 's5', num: '04', label: 'Use of AI technology and partners' },
+  { key: 's6', num: '05', label: 'Benefits and ROI' }
+];
+
+const CUT_DIMS = [
+  { key: 'region', label: 'Region', vals: ['All cities'].concat(REGIONS) },
+  { key: 'size', label: 'City size', vals: ['All cities', 'Small', 'Medium', 'Large', 'Mega'] },
+  { key: 'economy', label: 'Economy', vals: ['All cities', 'Advanced', 'Emerging'] },
+  { key: 'tier', label: 'Maturity tier', vals: ['All cities', 'Leaders', 'Advancers', 'Adopters'] },
+  { key: 'budget', label: 'Budget size', vals: ['All cities', 'Under $500M', '$500M-$2B', '$2B-$10B', 'Over $10B'] }
+];
+
+
+const FINDINGS = [
+  { value: 'xx%', label: 'of cities have an integrated, citywide AI strategic plan', chapter: 's1', source: 'Ch. 01 \u00b7 Strategic plan status' },
+  { value: 'xx%', label: 'say AI should augment, not replace, their workforce', chapter: 's2', source: 'Ch. 02 \u00b7 AI strategy sentiment' },
+  { value: '\u2014\u2014', label: 'average progress score across all AI domains, 0\u20134', chapter: 's3', source: 'Ch. 03 \u00b7 Capability progress' },
+  { value: 'xx%', label: 'report positive ROI from at least one AI programme', chapter: 's6', source: 'Ch. 06 \u00b7 Measured ROI bands' },
+  { value: 'xx%', label: 'name data quality and access as their single biggest obstacle', chapter: 's2', source: 'Ch. 02 \u00b7 Biggest challenges' },
+  { value: 'xx%', label: 'have appointed a named citywide AI lead', chapter: 's3', source: 'Ch. 03 \u00b7 Governance structures' },
+  { value: 'xx\u2192xx%', label: 'plan to scale agentic AI widely within three years', chapter: 's5', source: 'Ch. 05 \u00b7 AI technology types' },
+  { value: 'xx%', label: 'cite competing budget priorities as their top funding barrier', chapter: 's2', source: 'Ch. 02 \u00b7 Funding challenges' },
+  { value: '\u2014\u2014', label: 'average progress on resident experience and services, 0\u20134', chapter: 's3', source: 'Ch. 03 \u00b7 Resident experience' },
+  { value: 'xx%', label: 'run an active partnership with a private-sector operator', chapter: 's5', source: 'Ch. 05 \u00b7 Partnership intensity' },
+  { value: 'xx%', label: 'report residents fear AI-driven surveillance of their movements', chapter: 's2', source: 'Ch. 02 \u00b7 Citizen misconceptions' },
+  { value: 'xx mo', label: 'median payback period on a measured AI investment', chapter: 's6', source: 'Ch. 06 \u00b7 Payback period' }
+];
+const HL_PER_PAGE = 4;
+
+const BENCH_AREAS = [
+  'Vision, plan, and an outcome-driven approach',
+  'AI governance and data security',
+  'IT and data infrastructure',
+  'Resident experience and services',
+  'Preparing for the future of work',
+  'Partnerships and funding path'
+];
+const SCALE = ['No progress', 'Exploring and testing', 'Plans in place', 'Actively implementing', 'Widely scaling'];
+const SCALE_FILL = ['#F1F5F8', '#D8DCE4', '#A9CFDF', '#086C94', '#508C3C'];
+
+const PLACEHOLDER_W = [72, 58, 84, 46, 66, 38, 78, 52, 62, 44, 70, 34, 56, 48, 74, 40, 64];
+const FONT = "Calibri,'Carlito',sans-serif";
+const DISPLAY = "'Archivo',Calibri,'Carlito',sans-serif";
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      section: 'overview',
+      ask: false,
+      hlPage: 0,
+      bench: { usage: null, domains: [], responsible: [], foundation: null },
+      benchDone: false,
+      profile: null,
+      idxQuery: '',
+      idxRegion: 'All',
+      idxSize: 'All',
+      idxEconomy: 'All',
+      idxTier: 'All',
+      navCompact: false,
+      cuts: { challenges: ['region', 'All cities'], obstacles: ['region', 'All cities'], progress: ['size', 'All cities'] }
+    };
+    this.scrollRef = React.createRef();
+    this.ovRef = React.createRef();
+    this.bubbleRef = React.createRef();
+    this.hlPaused = false;
+  }
+
+  componentDidMount() {
+    this.onMsg = (e) => {
+      if (!e.data || !e.data.tlRegion) return;
+      // click coords are relative to the map iframe; anchor the popover at that point
+      const f = document.querySelector('iframe[data-region-map]');
+      const r = f ? f.getBoundingClientRect() : { left: 0, top: 0 };
+      this.setState({ cityRegion: e.data.tlRegion, cityX: r.left + (e.data.x || 0), cityY: r.top + (e.data.y || 0) });
+    };
+    window.addEventListener('message', this.onMsg);
+    this.onDocDown = (e) => {
+      if (this.state.cityRegion && !(e.target.closest && e.target.closest('[data-city-popover]'))) {
+        this.setState({ cityRegion: null });
+      }
+    };
+    document.addEventListener('mousedown', this.onDocDown);
+
+    this.hlTimer = setInterval(() => {
+      if (this.hlPaused || this.state.section !== 'overview') return;
+      this.setState((st) => ({ hlPage: (st.hlPage + 1) % Math.ceil(FINDINGS.length / HL_PER_PAGE) }));
+    }, 7000);
+    this.onResize = () => {
+      const compact = window.innerHeight < 780;
+      if (compact !== this.state.navCompact) this.setState({ navCompact: compact });
+    };
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    if (window.ResizeObserver) {
+      this.ro = new ResizeObserver(() => { this.fitOverview(); this.fitSections(); this.fitBubbles(); });
+      if (this.scrollRef.current) this.ro.observe(this.scrollRef.current);
+    }
+  }
+
+  componentDidUpdate() { this.fitOverview(); this.fitSections(); this.fitBubbles(); }
+
+  onBubblePointer(e) {
+    const el = this.bubbleRef.current;
+    if (!el) { this.bubblePointer = null; return; }
+    const r = el.getBoundingClientRect();
+    const inside = e.clientX >= r.left - 40 && e.clientX <= r.right + 40 && e.clientY >= r.top - 40 && e.clientY <= r.bottom + 40;
+    this.bubblePointer = inside ? { x: e.clientX, y: e.clientY } : null;
+    if (inside) this.runBubbleAnim();
+  }
+
+  runBubbleAnim() {
+    if (this.bubbleRaf) return;
+    const step = () => {
+      const el = this.bubbleRef.current;
+      const centers = this.bubbleCenters || [];
+      if (!el || !centers.length) { this.bubbleRaf = null; return; }
+      const rect = el.getBoundingClientRect();
+      const s = this.bubbleScale || 1;
+      const p = this.bubblePointer;
+      if (!this.bubbleSprings) this.bubbleSprings = [];
+      let active = false;
+      for (let i = 0; i < centers.length; i++) {
+        const c = centers[i];
+        const sp = this.bubbleSprings[i] || (this.bubbleSprings[i] = { x: 0, y: 0, vx: 0, vy: 0 });
+        let fx = 0, fy = 0;
+        if (p) {
+          const px = (p.x - rect.left) / s, py = (p.y - rect.top) / s;
+          const dx = c.x + sp.x - px, dy = c.y + sp.y - py;
+          const d = Math.hypot(dx, dy) || 0.001;
+          const R = c.r + 130;
+          if (d < R) {
+            const f = (1 - d / R) * 15;
+            fx = (dx / d) * f; fy = (dy / d) * f;
+          }
+        }
+        sp.vx = (sp.vx + fx - sp.x * 0.17) * 0.82;
+        sp.vy = (sp.vy + fy - sp.y * 0.17) * 0.82;
+        sp.x += sp.vx; sp.y += sp.vy;
+        if (Math.abs(sp.x) > 0.05 || Math.abs(sp.y) > 0.05 || Math.abs(sp.vx) > 0.05 || Math.abs(sp.vy) > 0.05) active = true;
+        const node = this.bubbleEls && this.bubbleEls[i];
+        if (node) node.style.transform = 'translate(' + sp.x.toFixed(2) + 'px,' + sp.y.toFixed(2) + 'px)';
+      }
+      this.bubbleRaf = (p || active) ? requestAnimationFrame(step) : null;
+    };
+    this.bubbleRaf = requestAnimationFrame(step);
+  }
+
+  fitBubbles() {
+    const el = this.bubbleRef.current;
+    if (!el) return;
+    const w = el.clientWidth;
+    const card = el.parentElement;
+    let h = 0;
+    if (card) {
+      const cs = getComputedStyle(card);
+      h = card.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - (card.firstElementChild ? card.firstElementChild.offsetHeight : 0) - 18;
+    }
+    const st = this.state;
+    if ((w && Math.abs(w - (st.bubbleW || 0)) > 2) || (h > 0 && Math.abs(h - (st.bubbleH || 0)) > 2)) this.setState({ bubbleW: w, bubbleH: Math.max(120, h) });
+  }
+
+  jobBubbleLayout(K, fp) {
+    const data = [
+      ['Chief Information/\nChief Technology Officer', 11], ['Mayor/Chief Executive', 9], ['City Manager', 7],
+      ['Chief Data Officer', 6], ['Chief Digital Officer', 6], ['Director of Smart City / Digital City / AI Initiatives', 6],
+      ['Chief AI Officer', 5], ['Chief Operating Officer', 5], ['Chief Innovation Officer', 5], ['Deputy Mayor', 5],
+      ['Chief of Staff', 4], ['Chief Financial Officer', 4], ['Chief Sustainability Officer', 4],
+      ['Chief Information Security Officer', 4], ['City Administrator', 4], ['Director of Urban Planning', 4],
+      ['Chief Citizen Experience Officer', 3], ['Director for the Environment', 3], ['Director of Transportation', 3],
+      ['Deputy Chief of Staff', 2]
+    ];
+    const GAP = 7;
+    const FP = fp || 12;
+    const CW = FP * 0.54, LH = Math.round(FP * 1.25), LW = 104;
+    const placed = [];
+    const fitsInside = (label, r) => {
+      const innerW = 2 * r * 0.78;
+      const lines = Math.ceil((label.length * CW) / innerW);
+      const pctH = r >= 100 ? 27 : r >= 80 ? 22 : r >= 65 ? 19 : 16;
+      return innerW > 54 && lines * LH + pctH + 6 <= 2 * r * 0.8;
+    };
+    data.forEach((d, i) => {
+      const r = K * Math.sqrt(d[1]);
+      const inside = fitsInside(d[0], r);
+      // Outside labels wrap at 104px; reserve their full measured height (plus the
+      // 5px margin) below the circle so nothing is clipped by the wrapper.
+      const lines = Math.max(1, Math.ceil((d[0].replace('\n', ' ').length * CW) / LW));
+      const pad = inside ? 0 : lines * LH + 11;
+      if (i === 0) { placed.push({ x: 0, y: 0, r: r, pad: pad, inside: inside, label: d[0], pct: d[1] }); return; }
+      let best = null;
+      for (let R = r; R < 3000 && !best; R += 5) {
+        const steps = Math.max(24, Math.round((2 * Math.PI * R) / 9));
+        for (let s = 0; s < steps; s++) {
+          const a = (s / steps) * Math.PI * 2 + i * 0.7;
+          const x = Math.cos(a) * R, y = Math.sin(a) * R * 0.5;
+          let ok = true;
+          for (let j = 0; j < placed.length; j++) {
+            const p = placed[j];
+            if (Math.hypot(x - p.x, y - p.y) < r + pad + p.r + p.pad + GAP) { ok = false; break; }
+          }
+          if (ok) { best = { x: x, y: y }; break; }
+        }
+      }
+      if (!best) best = { x: 0, y: 0 };
+      placed.push({ x: best.x, y: best.y, r: r, pad: pad, inside: inside, label: d[0], pct: d[1] });
+    });
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    placed.forEach((p) => {
+      minX = Math.min(minX, p.x - p.r - p.pad); maxX = Math.max(maxX, p.x + p.r + p.pad);
+      minY = Math.min(minY, p.y - p.r - (p.inside ? 0 : 2)); maxY = Math.max(maxY, p.y + p.r + p.pad);
+    });
+    return { circles: placed.map((p) => ({ label: p.label, pct: p.pct, r: p.r, inside: p.inside, cx: p.x - minX, cy: p.y - minY })), w: maxX - minX, h: maxY - minY, fp: FP };
+  }
+
+  jobBubbleFill(pct) {
+    if (pct >= 9) return ['#134A5E', '#FFFFFF'];
+    if (pct >= 7) return ['#16707C', '#FFFFFF'];
+    if (pct >= 6) return ['#1F6E4A', '#FFFFFF'];
+    if (pct >= 5) return ['#2C7C6E', '#FFFFFF'];
+    if (pct >= 4) return ['#4C7C24', '#FFFFFF'];
+    if (pct >= 3) return ['#B9CBD3', '#22333B'];
+    return ['#DDE3E5', '#22333B'];
+  }
+
+  // The overview never scrolls: the stage lays out at a logical size derived from
+  // the pane (availW/s x availH/s) and is scaled by s, so it fills both axes exactly
+  // — no letterbox, no dead zone, and s = 1 whenever the window is big enough.
+  fitOverview() {
+    const el = this.ovRef.current;
+    const box = el && el.parentElement;
+    if (!el || !box) return;
+    const availW = box.clientWidth, availH = box.clientHeight;
+    if (!availW || !availH) return;
+    // Re-fit only when the pane itself changes size. State updates (e.g. the
+    // findings carousel paging) must not re-run the fit: re-measuring against a
+    // different card page would pick a new width/scale and visibly resize the
+    // hero band.
+    // The stage element is destroyed when another section is shown, so a remount
+    // must re-run the fit even though the pane size is unchanged.
+    const key = availW + 'x' + availH;
+    if (this._fitKey === key && this._fitNode === el) return;
+    this._fitKey = key;
+    this._fitNode = el;
+    el.style.height = 'auto';
+    el.style.width = availW + 'px';
+    if (el.scrollHeight <= availH) {
+      el.style.height = availH + 'px';
+      el.style.transform = 'scale(1)';
+      return;
+    }
+    // Content height falls monotonically as the logical width grows, so binary
+    // search for the width whose content aspect matches the pane's. At that width
+    // the stage fills both axes exactly with no letterbox and no dead zone.
+    const target = availH / availW;
+    let lo = availW, hi = availW * 4;
+    for (let i = 0; i < 15; i++) {
+      const w = (lo + hi) / 2;
+      el.style.width = w + 'px';
+      if (el.scrollHeight / w > target) lo = w; else hi = w;
+    }
+    el.style.width = hi + 'px';
+    const h = el.scrollHeight;
+    const s = Math.min(availW / hi, availH / h);
+    // Lay the stage out at the pane size divided by the scale, so after scaling it
+    // covers the pane on BOTH axes — otherwise the smaller ratio letterboxes one
+    // side and the hero band stops short of the edge.
+    el.style.width = (availW / s) + 'px';
+    el.style.height = Math.max(el.scrollHeight, availH / s) + 'px';
+    el.style.transform = 'scale(' + s + ')';
+  }
+
+  // Scrolling sections are authored around a 1440px canvas. On a presentation-sized
+  // screen that leaves wide empty margins, so scale the whole section up to fill.
+  fitSections() {
+    const main = this.scrollRef.current;
+    if (!main) return;
+    if (this.state.section === 'overview') { main.style.zoom = ''; return; }
+    const w = main.getBoundingClientRect().width;
+    if (!w) return;
+    main.style.zoom = Math.max(1, Math.min(w / 1548, 1.5));
+  }
+
+  componentWillUnmount() {
+    if (this.hlTimer) clearInterval(this.hlTimer);
+    if (this.onMsg) window.removeEventListener('message', this.onMsg);
+    if (this.onDocDown) document.removeEventListener('mousedown', this.onDocDown);
+    if (this.onResize) window.removeEventListener('resize', this.onResize);
+    if (this.ro) this.ro.disconnect();
+  }
+
+  goSection(key) {
+    this.setState({ section: key, profile: null }, () => {
+      if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0;
+    });
+  }
+
+  jobTreeRows() {
+    const rows = [
+      { sum: 27, bg: '#134A5E', fg: '#FFFFFF', cells: [['Chief Information/Technology Officer', 11], ['Mayor/Chief Executive', 9], ['City Manager', 7]] },
+      { sum: 23, bg: '#16707C', fg: '#FFFFFF', cells: [['Chief Data Officer', 6], ['Chief Digital Officer', 6], ['Director of Smart City / Digital City / AI Initiatives', 6], ['Chief AI Officer', 5]] },
+      { sum: 19, bg: '#1F6E4A', fg: '#FFFFFF', cells: [['Chief Operating Officer', 5], ['Chief Innovation Officer', 5], ['Deputy Mayor', 5], ['Chief of Staff', 4]] },
+      { sum: 16, bg: '#4C7C24', fg: '#FFFFFF', cells: [['Chief Financial Officer', 4], ['Chief Sustainability Officer', 4], ['Chief Information Security Officer', 4], ['City Administrator', 4]] },
+      { sum: 15, bg: '#DDE3E5', fg: '#2A3B42', cells: [['Director of Urban Planning', 4], ['Chief Citizen Experience Officer', 3], ['Director for the Environment', 3], ['Director of Transportation', 3], ['Deputy Chief of Staff', 2]] }
+    ];
+    return rows.map((r) => ({
+      flex: 'flex:' + r.sum + ' 1 0;min-height:0;display:flex;gap:6px',
+      cells: r.cells.map((c) => ({
+        label: c[0],
+        pct: c[1] + '%',
+        cellStyle: 'flex:' + c[1] + ' 1 0;min-width:0;background:' + r.bg + ';border-radius:6px;padding:11px 12px 10px;display:flex;flex-direction:column;justify-content:space-between;gap:8px',
+        labelStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:12px;font-weight:700;line-height:1.3;letter-spacing:-.005em;text-wrap:pretty;color:" + r.fg,
+        ruleStyle: 'height:1px;background:' + r.fg + ';opacity:.32;margin-bottom:5px',
+        pctStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:clamp(19px,1.7vw,24px);line-height:.95;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:" + r.fg
+      }))
+    }));
+  }
+
+  roleTreeRow2(row) {
+    const cells = [
+      { label: 'Final decision maker for a department, agency, or functional area', pct: 24, bg: '#134A5E', fg: '#FFFFFF', row: 0 },
+      { label: 'Shares decision rights within a department, agency, or functional area', pct: 21, bg: '#16707C', fg: '#FFFFFF', row: 0 },
+      { label: 'Fully responsible and final decision maker citywide', pct: 18, bg: '#1F6E4A', fg: '#FFFFFF', row: 0 },
+      { label: 'Shares decision rights at the citywide level', pct: 15, bg: '#4C7C24', fg: '#FFFFFF', row: 1 },
+      { label: 'Has influence, but no formal decision rights', pct: 14, bg: '#DDE3E5', fg: '#2A3B42', row: 1 },
+      { label: 'Active user of AI tools with no decision rights', pct: 8, bg: '#EFF1F2', fg: '#2A3B42', row: 1 }
+    ].filter((c) => c.row === row);
+    return cells.map((c) => ({
+      label: c.label,
+      pct: c.pct + '%',
+      cellStyle: 'flex:' + c.pct + ' 1 0;min-width:0;background:' + c.bg + ';border-radius:6px;padding:11px 12px 10px;display:flex;flex-direction:column;justify-content:space-between;gap:8px',
+      labelStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:12px;font-weight:700;line-height:1.3;letter-spacing:-.005em;text-wrap:pretty;color:" + c.fg,
+      ruleStyle: 'height:1px;background:' + c.fg + ';opacity:.32;margin-bottom:5px',
+      pctStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:clamp(19px,1.7vw,24px);line-height:.95;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:" + c.fg
+    }));
+  }
+
+  roleTreeRow(row) {
+    const cells = [
+      { label: 'Final decision maker for AI within a department, agency, or functional area, but not citywide.', pct: 24, bg: '#086C94', fg: '#FFFFFF', row: 0 },
+      { label: 'Shares responsibility and decision rights for AI within a department, agency, or functional area.', pct: 21, bg: '#136E85', fg: '#FFFFFF', row: 0 },
+      { label: 'Fully responsible and the final decision maker for AI in the entire city government', pct: 18, bg: '#2C7C6E', fg: '#FFFFFF', row: 1 },
+      { label: 'Shares responsibility and decision rights for AI at the citywide level.', pct: 15, bg: '#508C3C', fg: '#FFFFFF', row: 1 },
+      { label: 'Has influence on AI decisions (citywide or in a department), but does not have formal decision rights.', pct: 14, bg: '#C7D3D9', fg: '#231F20', row: 2 },
+      { label: 'Has little or no influence on AI decisions, but is an active user or close observer of AI tools at work.', pct: 8, bg: '#E4EAED', fg: '#231F20', row: 2 }
+    ].filter((c) => c.row === row);
+    return cells.map((c) => ({
+      label: c.label,
+      pct: c.pct + '%',
+      cellStyle: 'flex:' + c.pct + ' 1 0;min-width:0;background:' + c.bg + ';color:' + c.fg + ';padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;gap:6px;overflow:hidden',
+      pctStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:18px;line-height:1;font-weight:800;letter-spacing:-.02em;color:" + c.fg,
+      labelStyle: 'font-size:' + (c.pct < 10 ? 10 : 12) + 'px;line-height:1.3;text-wrap:pretty;color:' + c.fg
+    }));
+  }
+
+  benchOptStyle(on) {
+    return 'cursor:pointer;text-align:left;width:100%;min-width:0;border:1.5px solid ' + (on ? '#086C94' : '#DCE5EA') + ';background:' + (on ? '#EAF3F7' : '#fff') + ';color:#231F20;font-family:' + FONT + ';font-size:13.5px;font-weight:' + (on ? '700' : '400') + ';padding:12px 15px;border-radius:12px;transition:all .14s;display:flex;align-items:center;gap:11px';
+  }
+
+  benchRadio(o, field) {
+    const on = this.state.bench[field] === o.v;
+    return {
+      label: o.label,
+      style: this.benchOptStyle(on),
+      dotStyle: 'width:16px;height:16px;border-radius:50%;flex:none;border:2px solid ' + (on ? '#086C94' : '#C4D0D0') + ';background:' + (on ? '#086C94' : '#fff') + ';box-shadow:' + (on ? 'inset 0 0 0 2.5px #fff' : 'none'),
+      go: () => this.setState((s) => ({ bench: Object.assign({}, s.bench, { [field]: o.v }) }))
+    };
+  }
+
+  benchCheck(label, i, field) {
+    const on = this.state.bench[field].indexOf(i) >= 0;
+    return {
+      label: label,
+      mark: on ? '\u2713' : '',
+      style: this.benchOptStyle(on),
+      chkStyle: 'width:16px;height:16px;border-radius:5px;flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff;border:2px solid ' + (on ? '#086C94' : '#C4D0D0') + ';background:' + (on ? '#086C94' : '#fff'),
+      go: () => this.setState((s) => {
+        const cur = s.bench[field];
+        const next = cur.indexOf(i) >= 0 ? cur.filter((x) => x !== i) : cur.concat([i]);
+        return { bench: Object.assign({}, s.bench, { [field]: next }) };
+      })
+    };
+  }
+
+  benchScore() {
+    const b = this.state.bench;
+    const p1 = b.usage == null ? 0 : b.usage;
+    const p2 = (b.domains.length / 6) * 100;
+    const p3 = (b.responsible.length / 11) * 100;
+    const p4 = b.foundation == null ? 0 : b.foundation;
+    return { p1: p1, p2: p2, p3: p3, p4: p4, overall: (p1 + p2 + p3 + p4) / 4 };
+  }
+
+  navItem(key, num, label) {
+    const active = this.state.section === key;
+    return {
+      go: () => this.goSection(key),
+      num: num === null ? (active ? '\u25c6' : '\u25c7') : num,
+      label: label,
+      style: 'display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;border:0;border-radius:9px;cursor:pointer;font-family:' + FONT + ';font-size:clamp(11.5px,1.5vh,13.5px);line-height:1.3;padding:clamp(3px,.72vh,7px) 11px;margin-bottom:1px;background:' + (active ? 'rgba(255,255,255,.13)' : 'transparent') + ';color:' + (active ? '#fff' : '#C4D9E2') + ';font-weight:' + (active ? '700' : '400') + ';transition:background .14s ease',
+      numStyle: 'font-size:' + (num === null ? '10px' : '11px') + ';font-weight:700;letter-spacing:.06em;color:' + (active ? '#A9CFDF' : '#5C8698') + ';width:17px;flex:none;padding-top:' + (num === null ? '3px' : '2px')
+    };
+  }
+
+  cutModule(key) {
+    const cur = this.state.cuts[key];
+    const dimKey = cur[0], val = cur[1];
+    const dim = CUT_DIMS.filter(function (d) { return d.key === dimKey; })[0];
+    const btn = (label, on, go) => ({
+      label: label, go: go,
+      style: 'border:1px solid ' + (on ? 'transparent' : '#DCE5EA') + ';border-radius:999px;background:' + (on ? 'linear-gradient(120deg,#086C94,#0B4A63)' : '#fff') + ';color:' + (on ? '#fff' : '#5F7480') + ';font-family:' + FONT + ';font-size:12.5px;font-weight:' + (on ? '700' : '400') + ';padding:6px 14px;cursor:pointer;white-space:nowrap'
+    });
+    return {
+      dimBtns: CUT_DIMS.map((d) => btn(d.label, d.key === dimKey, () => {
+        const next = Object.assign({}, this.state.cuts);
+        next[key] = [d.key, 'All cities'];
+        this.setState({ cuts: next });
+      })),
+      valBtns: dim.vals.map((v) => btn(v, v === val, () => {
+        const next = Object.assign({}, this.state.cuts);
+        next[key] = [dimKey, v];
+        this.setState({ cuts: next });
+      })),
+      foot: 'Cut by ' + dim.label.toLowerCase() + ' \u00b7 ' + val + ' \u00b7 base n = xx of 200.'
+    };
+  }
+
+  renderVals() {
+    const st = this.state;
+    const keys = ['overview', 's1', 's2', 's3', 's4', 's5', 's6', 'index', 'cases', 'plans', 'perspectives', 'survey', 'benchmark', 'about'];
+    const bubW = st.bubbleW || 820;
+    const bubH = st.bubbleH || 490;
+    // Pick the circle size that renders largest inside the card: the cluster's own
+    // width has a floor (the 104px label columns don't shrink), so the winner is the
+    // biggest K whose scale-to-fit stays readable. Labels are authored at 16px so
+    // they land near 11-12px after that scale.
+    const bubKey = Math.round(bubW) + 'x' + Math.round(bubH);
+    if (!this._bubCache || this._bubCache.key !== bubKey) {
+      let best = null, bestScore = -1, loose = null, looseScore = -1;
+      for (let K = 12; K <= 64; K += 4) {
+        const L = this.jobBubbleLayout(K, 15);
+        const s = Math.min(1, bubW / L.w, bubH / (L.h + 14));
+        const score = K * s;
+        if (score > looseScore) { looseScore = score; loose = { L: L, s: s }; }
+        if (s >= 0.6 && score > bestScore) { bestScore = score; best = { L: L, s: s }; }
+      }
+      best = best || loose;
+      this._bubCache = { key: bubKey, layout: best.L, s: best.s };
+    }
+    const bubL = this._bubCache.layout;
+    const bubS = this._bubCache.s;
+    this.bubbleScale = bubS;
+    const bubInnerW = Math.max(bubL.w, bubW / bubS);
+    const bubOff = (bubInnerW - bubL.w) / 2;
+    this.bubbleCenters = bubL.circles.map((c) => ({ x: bubOff + c.cx, y: c.cy, r: c.r }));
+    const bSc = this.benchScore();
+    const bScore = Math.round(bSc.overall * 10) / 10;
+    const bReady = st.bench.usage != null && st.bench.foundation != null;
+    const bTier = bSc.overall >= 60.7
+      ? { name: 'AI leader', color: '#A9DC8C', msg: 'Your city scores in the top tier of the maturity model, alongside the leading fifth of the 200 cities surveyed. The next gains come from scaling proven use cases and deepening responsible-AI governance.' }
+      : bSc.overall >= 33.8
+        ? { name: 'Advancer', color: '#7FC8E0', msg: 'Your city sits in the broad, fast-moving middle: the 60% of cities actively building momentum. The biggest gains usually come from broadening AI across more domains and strengthening the data foundation.' }
+        : { name: 'Adopter', color: '#C7D3D9', msg: 'Your city is early in its AI journey, with room to grow. Start with high-impact use cases you can customise with your own data, and build governance in from the start.' };
+    const show = {}, go = {};
+    keys.forEach((k) => { show[k] = st.section === k; go[k] = () => this.goSection(k); });
+
+    const q = st.idxQuery.trim().toLowerCase();
+    const filtered = CITIES.filter(function (c) {
+      if (q && (c.name + ' ' + c.country).toLowerCase().indexOf(q) < 0) return false;
+      if (st.idxRegion !== 'All' && c.region !== st.idxRegion) return false;
+      if (st.idxSize !== 'All' && c.size !== st.idxSize) return false;
+      if (st.idxEconomy !== 'All' && c.economy !== st.idxEconomy) return false;
+      if (st.idxTier !== 'All' && c.tier !== st.idxTier) return false;
+      return true;
+    });
+    const filterBtn = (label, on, onGo) => ({
+      label: label, go: onGo,
+      style: 'border:1px solid ' + (on ? 'transparent' : '#DCE5EA') + ';border-radius:999px;background:' + (on ? 'linear-gradient(120deg,#086C94,#0B4A63)' : '#F7FAFB') + ';color:' + (on ? '#fff' : '#5F7480') + ';font-family:' + FONT + ';font-size:13px;font-weight:' + (on ? '700' : '400') + ';padding:7px 15px;cursor:pointer;white-space:nowrap'
+    });
+
+    const pc = st.profile;
+    let profile = null;
+    if (pc) {
+      const pt = TIERS.filter(function (t) { return t.key === pc.tier; })[0] || TIERS[0];
+      const rank = pc.rank || (RANKED.indexOf(pc) + 1);
+      const near = [];
+      [-2, -1, 1, 2].forEach(function (d) { const n = RANKED[rank - 1 + d]; if (n) near.push(n); });
+      const vals = pillarVals(pc);
+      profile = {
+        name: pc.name, country: pc.country, region: pc.region, size: pc.size + ' city', economy: pc.economy + ' economy',
+        tier: pt.one,
+        score: pc.score.toFixed(1),
+        rank: '#' + rank + ' of ' + RANKED.length,
+        photoId: 'city-photo-' + pc.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        headStyle: 'position:relative;overflow:hidden;color:#fff;background:linear-gradient(118deg,' + pt.deep + ' 0%,#0A2730 100%)',
+        scrim: 'linear-gradient(to bottom,rgba(4,26,33,.88) 0%,rgba(4,26,33,.6) 34%,rgba(4,26,33,.26) 66%,rgba(4,26,33,.1) 100%)',
+        tierChipStyle: 'display:inline-block;font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-size:9.5px;letter-spacing:.12em;font-weight:700;text-transform:uppercase;color:' + pt.deep + ';background:' + pt.chipBg + ';border-radius:999px;padding:5px 10px',
+        gaugeStyle: maturityFill(pc.score),
+        scoreStyle: 'font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-weight:800;font-size:46px;line-height:.9;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:' + pt.ink,
+        accentInk: 'font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1;color:' + pt.ink,
+        pillars: PILLARS.map(function (n, i) {
+          return {
+            name: n, value: vals[i],
+            fillStyle: 'display:block;height:100%;width:' + vals[i] + '%;border-radius:5px;background:#8A9AA4',
+            valStyle: 'font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-size:14px;font-weight:800;text-align:right;font-variant-numeric:tabular-nums;color:#231F20'
+          };
+        }),
+        peers: near.map((c) => {
+          const ct = TIERS.filter(function (t) { return t.key === c.tier; })[0] || TIERS[0];
+          return {
+            name: c.name, rank: '#' + c.rank, score: c.score.toFixed(1),
+            dotStyle: 'flex:none;width:9px;height:9px;border-radius:50%;background:' + ct.accent,
+            scoreStyle: 'margin-left:auto;font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-size:15px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#231F20',
+            go: () => this.setState({ profile: c })
+          };
+        })
+      };
+    }
+
+    const hlPages = Math.ceil(FINDINGS.length / HL_PER_PAGE);
+    const hlPage = st.hlPage % hlPages;
+    const hlSlice = FINDINGS.slice(hlPage * HL_PER_PAGE, hlPage * HL_PER_PAGE + HL_PER_PAGE);
+    const hlAnim = 'tlFade' + ['A', 'B', 'C'][hlPage % 3];
+
+    const strip = (label) => ({ label: label });
+
+    return {
+      go: go,
+      show: show,
+      scrollRef: this.scrollRef,
+      ovRef: this.ovRef,
+      mainStyle: 'flex:1 1 auto;min-width:0;height:100%;position:relative;background:#F6F6F7;overflow-x:hidden;overflow-y:' + (show.overview ? 'hidden' : 'auto'),
+      homeNav: [this.navItem('overview', null, 'Overview')],
+      studyNav: CHAPTERS.map((c) => this.navItem(c.key, c.num, c.label)),
+      exploreNav: [
+        this.navItem('index', null, 'City index'),
+        this.navItem('cases', null, 'City case studies')
+      ],
+      benchNav: [
+        this.navItem('benchmark', null, "Assess your city's maturity"),
+        this.navItem('plans', null, 'Review city plans')
+      ],
+      aboutNav: [],
+      navCaps: !st.navCompact,
+      sponsorList: ['Deloitte', 'Microsoft', 'Dell', 'FTI Consulting', 'Intel', 'Itron', 'GM', 'FedEx', 'NVIDIA'],
+
+      hlCounter: 'Findings ' + (hlPage * HL_PER_PAGE + 1) + '\u2013' + Math.min(FINDINGS.length, hlPage * HL_PER_PAGE + HL_PER_PAGE) + ' of ' + FINDINGS.length,
+      hlDots: Array.from({ length: hlPages }, (_, i) => ({
+        go: () => this.setState({ hlPage: i }),
+        style: 'width:' + (i === hlPage ? '22px' : '8px') + ';height:8px;border-radius:999px;border:0;padding:0;cursor:pointer;background:' + (i === hlPage ? '#508C3C' : '#C9D9E1') + ';transition:width .2s ease,background .2s ease'
+      })),
+      hlPrev: () => this.setState((s2) => ({ hlPage: (s2.hlPage + hlPages - 1) % hlPages })),
+      hlNext: () => this.setState((s2) => ({ hlPage: (s2.hlPage + 1) % hlPages })),
+      hlPause: () => { this.hlPaused = true; },
+      hlResume: () => { this.hlPaused = false; },
+      headlineCards: hlSlice.map((f) => ({
+        value: f.value,
+        label: f.label,
+        source: f.source,
+        go: () => this.goSection(f.chapter),
+        style: 'text-align:left;cursor:pointer;min-width:0;display:flex;flex-direction:column;background:#fff;border:1.5px solid #508C3C;border-radius:16px;padding:clamp(11px,1.8vh,20px) 22px clamp(11px,1.8vh,18px);font-family:' + FONT + ';transition:border-color .16s ease,background .16s ease,transform .16s ease;animation:' + hlAnim + ' .32s ease'
+      })),
+
+      cutChallenges: this.cutModule('challenges'),
+      cutObstacles: this.cutModule('obstacles'),
+      cutProgress: this.cutModule('progress'),
+
+      showCityModal: !!this.state.cityRegion,
+      cityModal: (function (key) {
+        const R = {
+          na: ['North American cities surveyed', 50, '#086C94'],
+          latam: ['Latin American cities surveyed', 20, '#508C3C'],
+          eu: ['European cities surveyed', 50, '#98340C'],
+          me: ['Middle Eastern cities surveyed', 20, '#E66F00'],
+          af: ['African cities surveyed', 15, '#48546C'],
+          apac: ['Asian and Pacific cities surveyed', 45, '#989494']
+        };
+        const r = R[key] || R.na;
+        const items = [];
+        for (let i = 0; i < r[1]; i++) items.push('Placeholder');
+        const W = 300, H = Math.min(420, 96 + Math.ceil(r[1] / 2) * 21);
+        const x = Math.max(12, Math.min(this.state.cityX || 0, window.innerWidth - W - 12));
+        const y = Math.max(12, Math.min(this.state.cityY || 0, window.innerHeight - H - 12));
+        const posStyle = 'position:fixed;left:' + x + 'px;top:' + y + 'px;z-index:120;width:' + W + 'px;max-height:' + H + 'px;background:#fff;border:1px solid #E1E8EE;border-radius:12px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 32px rgba(6,43,57,.18)';
+        return { title: r[0], count: r[1], color: r[2], items: items, posStyle: posStyle };
+      }).call(this, this.state.cityRegion),
+      closeCityModal: () => this.setState({ cityRegion: null }),
+      stopClick: (e) => e.stopPropagation(),
+      popRows: [
+        ['Smallest', '50K–600K', 84], ['Small', '600K–1M', 28], ['Medium', '1M–5M', 103],
+        ['Large', '5M–10M', 21], ['Mega', '10M–37M', 14]
+      ].map(function (d) {
+        const pct = Math.round(d[2] / 250 * 100);
+        return {
+          label: d[0], range: d[1], n: d[2], pct: pct + '%',
+          barStyle: 'position:absolute;left:0;top:0;height:100%;width:' + pct + '%;border-radius:999px;background:#48546C'
+        };
+      }),
+      regionRows: [
+        ['North America', 50, '#086C94'], ['Europe', 50, '#98340C'], ['Asia Pacific', 45, '#989494'],
+        ['Latin America', 20, '#508C3C'], ['Middle East', 20, '#E66F00'], ['Africa', 15, '#48546C']
+      ].map(function (d) {
+        return { label: d[0], n: d[1], color: d[2], barStyle: 'height:100%;width:' + (d[1] / 50 * 100) + '%;background:' + d[2] + ';border-radius:999px' };
+      }),
+      bgStats: [
+        { value: 'xx', label: 'countries', color: '#48546C' },
+        { value: 'xxx M', label: 'residents represented', color: '#508C3C' },
+        { value: 'xx%', label: 'of world population', color: '#086C94' }
+      ],
+      scopeStats: [
+        { value: '200', label: 'cities surveyed', color: '#086C94' },
+        { value: 'xx', label: 'countries', color: '#48546C' },
+        { value: 'xxx M', label: 'residents represented', color: '#508C3C' },
+        { value: 'xx%', label: 'of world population', color: '#48546C' }
+      ],
+      knowledgeRows: ['Very knowledgeable', 'Knowledgeable', 'Not very knowledgeable'].map(function (l, i) {
+        const w = [92, 78, 22][i];
+        return { label: l, barStyle: 'height:100%;width:' + w + '%;background:#086C94;border-radius:999px' };
+      }),
+      roleRows: [
+        'Fully responsible and the final decision maker for AI in the entire city government',
+        'Final decision maker for AI within a department, agency, or functional area, but not citywide.',
+        'Shares responsibility and decision rights for AI at the citywide level.',
+        'Shares responsibility and decision rights for AI within a department, agency, or functional area.',
+        'Has influence on AI decisions (citywide or in a department), but does not have formal decision rights.',
+        'Has little or no influence on AI decisions, but is an active user or close observer of AI tools at work.'
+      ].map(function (l, i) {
+        const w = [18, 24, 15, 21, 14, 8][i];
+        return { label: l, pct: w + '%', barStyle: 'position:absolute;left:0;top:0;height:100%;width:' + w + '%;border-radius:999px;background:#48546C' };
+      }),
+      mapSrc: (window.__resources && window.__resources.regionMap) || 'world-region-map-v2.html',
+      bubbleRef: this.bubbleRef,
+      jobBubbleWrapStyle: 'position:relative;width:100%;margin-top:18px;overflow:hidden;height:' + Math.round(bubL.h * bubS + 18) + 'px',
+      jobBubbleInnerStyle: 'position:absolute;left:0;top:0;width:' + Math.round(bubInnerW) + 'px;height:' + Math.round(bubL.h) + 'px;transform:scale(' + bubS + ');transform-origin:top left',
+      jobBubbles: bubL.circles.map((c, ci) => {
+        const col = this.jobBubbleFill(c.pct);
+        const pctSize = c.r >= 100 ? 27 : c.r >= 80 ? 22 : c.r >= 65 ? 19 : 16;
+        return {
+          label: c.label,
+          pct: c.pct + '%',
+          labelInside: c.inside,
+          labelOutside: !c.inside,
+          wrapStyle: 'position:absolute;left:' + Math.round(bubOff + c.cx - c.r) + 'px;top:' + Math.round(c.cy - c.r) + 'px;width:' + Math.round(c.r * 2) + 'px;display:flex;flex-direction:column;align-items:center',
+          circleStyle: 'width:' + Math.round(c.r * 2) + 'px;height:' + Math.round(c.r * 2) + 'px;flex:none;border-radius:50%;background:' + col[0] + ';display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0 ' + Math.round(c.r * 0.22) + 'px;text-align:center;box-sizing:border-box;cursor:default;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease',
+          labelStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:" + bubL.fp + "px;font-weight:700;line-height:1.25;letter-spacing:-.005em;white-space:pre-line;text-wrap:pretty;color:" + col[1],
+          outLabelStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:" + bubL.fp + "px;font-weight:700;line-height:1.25;letter-spacing:-.005em;text-align:center;text-wrap:pretty;color:#22333B;margin-top:5px;width:104px;flex:none",
+          pctStyle: "font-family:'Archivo',Calibri,'Carlito',sans-serif;font-size:" + pctSize + "px;line-height:1;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:" + col[1]
+        };
+      }),
+      roleTreeTop: this.roleTreeRow2(0),
+      roleTreeBottom: this.roleTreeRow2(1),
+      titleRows: ['Mayor/Chief Executive', 'Chief of Staff', 'Chief Information/Technology Officer', 'Chief Data Officer', 'Chief Digital Officer', 'Chief AI Officer', 'Chief Operating Officer', 'Chief Financial Officer/Director of Finance', 'Chief Innovation Officer/Director of Innovation', 'Chief Citizen Experience Officer', 'Chief Sustainability Officer', 'Chief Information Security Officer', 'Deputy Mayor', 'Deputy Chief of Staff', 'City Manager', 'City Administrator', 'Director for the Environment', 'Director of Budget', 'Director of Technology', 'Director of Policy/Strategic Initiatives', 'Director of Smart City / Digital City / AI Initiatives', 'Director of Urban Planning', 'Director of Transportation', 'Assistant Director/Program Manager, Smart Cities / AI'].map(function (l, i) {
+        const w = [38, 46, 96, 72, 64, 55, 42, 34, 78, 30, 44, 51, 40, 33, 68, 58, 27, 31, 83, 48, 88, 36, 43, 60][i];
+        return { label: l, barStyle: 'height:100%;width:' + w + '%;background:#48546C;border-radius:999px' };
+      }),
+
+      challengeRows: ['Data management, readiness, and interoperability', 'Cybersecurity, privacy, and critical infrastructure', 'Transportation and mobility', 'Public safety and emergency preparedness', 'Infrastructure management and maintenance', 'Environment and sustainability', 'Energy and resource management', 'Administrative backlogs and permitting', 'Public trust and community engagement', 'Staff shortages and workforce augmentation', 'Social equity and inclusion', 'Urban development, housing, and open space', 'Public health', 'Economic and business conditions', 'Funding shortages and budget deficits', 'Demographic change and population growth', 'Logistics, delivery, and urban freight'].map(function (l, i) {
+        const w = PLACEHOLDER_W[i % PLACEHOLDER_W.length];
+        return {
+          label: l,
+          nowStyle: 'height:100%;width:' + Math.round(w * 0.72) + '%;background:#086C94;border-radius:999px',
+          nextStyle: 'height:100%;width:' + w + '%;background:#D8DCE4;border-radius:999px'
+        };
+      }),
+      strategyRows: ['Our city aims to become a people-first, AI-powered city', 'AI should augment, not replace, people and protect their rights', 'AI will become a key competitive and economic driver', 'AI will help deliver personalised, frictionless services', 'AI will fill workforce shortages and support stretched staff', 'We are deploying AI faster than we are building governance', 'New models of shared governance will be needed', 'AI will increase cyber and physical risks', 'Residents should have a direct say in which AI systems we use', 'Citizen concerns currently outweigh the benefits they see', 'AI is not yet reliable enough for high-stakes public decisions', 'We have the governance mechanisms needed to mitigate AI risks'].map(function (l, i) {
+        const a = 34 + (i * 7) % 30, n = 22 + (i * 5) % 18;
+        return {
+          label: l,
+          agreeStyle: 'width:' + a + '%;background:#508C3C',
+          neutralStyle: 'width:' + n + '%;background:#D8DCE4',
+          disagreeStyle: 'width:' + (100 - a - n) + '%;background:#98340C'
+        };
+      }),
+      misconceptionRows: ['AI will reduce good local jobs', 'AI enables constant surveillance', 'AI will treat some groups unfairly', 'AI will flood the city with misinformation', 'Data centres will strain local resources', 'AI concentrates power in big tech', 'Services will feel less human', 'Humans will lose control of key decisions', 'AI will help criminals attack the city'].map(function (l, i) {
+        const filled = 3 + ((i * 3) % 5);
+        const cells = [];
+        for (let k = 0; k < 10; k++) cells.push('width:13px;height:13px;flex:none;border-radius:3px;background:' + (k < filled ? '#98340C' : '#fff') + ';border:1px solid #D5E4EA');
+        return { label: l, cells: cells };
+      }),
+      obstacleGroups: [
+        { title: 'Organisation and workforce', items: ['Lack of leadership commitment', 'Limited AI skills and talent', 'Conservative culture or worker resistance', 'No clear implementation roadmap', 'Limited change management capacity', 'Cannot measure productivity or public value'] },
+        { title: 'Technology and data', items: ['Data quality, access, and management', 'Siloed data and fragmented point solutions', 'Keeping pace with rapid AI advances', 'Inadequate IT/edge infrastructure', 'No sustainable platform strategy', 'Environmental and resource impacts', 'No real-time data-sharing frameworks'] },
+        { title: 'Governance and risk', items: ['Regulatory and compliance complexity', 'Cyber risk, security, and privacy', 'AI governance and lack of transparency', 'Misinformation, bias, and unfair outcomes', 'Unclear ROI and use-case prioritisation'] },
+        { title: 'Social, equity, and legitimacy', items: ['Public trust and acceptance', 'Concerns about transparency and accountability', 'Inequitable access for marginalised communities', 'Perception of over-surveillance', 'Fear of job loss and economic displacement'] }
+      ].map(function (g, gi) {
+        return {
+          title: g.title,
+          colStyle: 'padding:20px 22px 8px;border-right:' + (gi === 3 ? '0' : '1px solid #EEF2F5'),
+          items: g.items.map(function (l, i) {
+            return { label: l, barStyle: 'height:100%;width:' + PLACEHOLDER_W[(gi * 5 + i) % PLACEHOLDER_W.length] + '%;background:' + (i === 0 ? '#98340C' : '#D8DCE4') + ';border-radius:999px' };
+          })
+        };
+      }),
+      fundingChallengeRows: ['Lack of dedicated budget for AI initiatives', 'Competing budget priorities', 'Difficulty justifying ROI to elected officials', 'Concerns about long-term or unexpected costs', 'Restrictive procurement processes', 'Limited capacity to access grant opportunities', 'Political opposition to technology spending'].map(function (l, i) {
+        return { label: l, w: PLACEHOLDER_W[i], color: i === 0 ? '#98340C' : '#D8DCE4' };
+      }),
+
+      scaleLegend: [
+        { label: '0 \u00b7 No progress', swatch: 'width:12px;height:12px;flex:none;border-radius:3px;background:#F1F5F8;border:1px solid #DCE5EA' },
+        { label: '1 \u00b7 Exploring', swatch: 'width:12px;height:12px;flex:none;border-radius:3px;background:#D8DCE4' },
+        { label: '2 \u00b7 Plans in place', swatch: 'width:12px;height:12px;flex:none;border-radius:3px;background:#CBE3ED' },
+        { label: '3 \u00b7 Actively implementing', swatch: 'width:12px;height:12px;flex:none;border-radius:3px;background:#086C94' },
+        { label: '4 \u00b7 Widely scaling', swatch: 'width:12px;height:12px;flex:none;border-radius:3px;background:#508C3C' }
+      ],
+      progressGroups: [
+        { title: 'Vision, plan, and an outcome-driven approach', rows: ['Setting a shared long-term vision aligned with city goals', 'Identifying the most effective use cases and success metrics', 'Creating a structured roadmap with governance and accountability', 'Reviewing and refining the AI strategy as conditions change', 'Communicating the business case and public value', 'Setting policies for when AI augments, automates, or executes'] },
+        { title: 'AI governance and data security', rows: ['Clear governance structures and accountability across functions', 'Sovereign control over sensitive city and citizen data', 'Cybersecurity and incident response built into AI operations', 'Rules for video, biometric, geolocation, and sensor data', 'Responsible AI principles covering ethics and model bias', 'Managing legal, operational, and reputational AI risk', 'Visibility and inventory of AI systems deployed citywide', 'Testing, auditing, and risk tiering with humans in the loop'] },
+        { title: 'IT and data infrastructure', rows: ['Consistent, high-quality data integrated across silos', 'Modern IT platform replacing fragmented legacy systems', 'AI integrated across multiple departments or domains', 'Connectivity for fast, reliable data flows', 'Using AI to improve data creation, security, and management', 'Agentic AI reinventing workflows autonomously', 'AI monitoring and optimising the physical environment'] },
+        { title: 'Resident experience and services', rows: ['Making resident services reliable, fast, and human-centred', 'AI-enabled self-service that reduces friction', 'Freeing frontline staff for higher-value support', 'Personalising services from multiple data sources', 'Measuring satisfaction, accessibility, and inclusion', 'AI-driven engagement platforms analysing input at scale'] },
+        { title: 'Partnerships and funding path', rows: ['A strong ecosystem of technology, utility, and civic partners', 'External funding such as grants and philanthropic support', 'Public-private partnerships and outcome-based models', 'A dedicated AI infrastructure fund', 'Collaborating with other cities to pool resources', 'Coalitions and councils shaping AI policy with residents'] }
+      ].map(function (g, gi) {
+        return {
+          title: g.title,
+          rows: g.rows.map(function (l, i) {
+            const seed = (gi * 3 + i * 7) % 5;
+            return { label: l, s0: 10 + seed * 2, s1: 22, s2: 24, s3: 26 - seed * 2, s4: 18 };
+          })
+        };
+      }),
+      governanceRows: ['Named citywide AI lead (Chief AI Officer, CIO, or CTO)', 'Dedicated citywide AI governance body or taskforce', 'Existing IT/digital governance processes applied to AI', 'Department-level AI champions, no citywide structure', 'An innovation lab designing and scaling AI solutions', 'Informal, ad-hoc collaboration across departments', 'Each department governs its own AI', 'At least one use case in production with owners and metrics'].map(function (l, i) { return { label: l, w: PLACEHOLDER_W[i], color: '#508C3C' }; }),
+      foundationTools: ['Integrated data platform', 'Interoperability / API layer', 'Model registry', 'Workflow and case management platform', 'City operations dashboard', 'Geospatial / digital twin platform', 'Security Operations Centre integration', 'Utility and regional data-sharing agreements'].map(function (l) { return { label: l }; }),
+
+      planS1: ['Respondent seniority and decision rights - ranked bars', 'AI strategic plan status - four-part stacked bar', 'Job title distribution - ranked list', 'Operating and capital budgets by city size - grouped bars', 'AI spend FY2025 to FY2027 - three-point trend', 'AI spend allocation across six categories - 100% stacked bar'].map(strip),
+      planS4: ['Domain progress heatmap - seven domains by sub-capability, 0-4 scale', 'Government management and planning - progress rows', 'Safety, security, and resilience - progress rows', 'Living, health, and education - progress rows', 'Transportation, mobility, EV charging, and accessible mobility', 'Physical and digital infrastructure - progress rows', 'Energy, utilities, and environment - progress rows', 'Economy, business, and industry - progress rows', 'Domain leader board - which domains are furthest ahead'].map(strip),
+      planS5: ['Eight AI technology types, now versus in three years - paired bars', 'Partnership priorities across commercial, public, and non-profit - ranked bars', 'Private-sector partnership intensity - five-stage matrix by sector', 'Vendor and partner management practices - ranked bars', 'Utility partner types and shared data - matrix', 'Formal data-sharing agreements with logistics operators - donut'].map(strip),
+      planS6: ['Success metrics used, by category - grouped ranked bars', 'Measured AI impact across eight performance areas - diverging stacked bars', 'Whether cities calculate ROI - donut', 'Costs and benefits included in ROI - two-column ranked bars', 'Measured ROI bands - ranked bars', 'Payback period - ordered bars', 'Most effective AI solution - case-study cards'].map(strip),
+
+      idxQuery: st.idxQuery,
+      onIdxQuery: (e) => this.setState({ idxQuery: e.target.value }),
+      clearIdx: () => this.setState({ idxQuery: '', idxRegion: 'All', idxSize: 'All', idxEconomy: 'All', idxTier: 'All' }),
+      idxFilterRows: [
+        { label: 'Region', opts: ['All'].concat(REGIONS).map((r) => filterBtn(r === 'All' ? 'All regions' : r, st.idxRegion === r, () => this.setState({ idxRegion: r }))) },
+        { label: 'City size', opts: ['All'].concat(SIZES).map((s) => filterBtn(s === 'All' ? 'All sizes' : s, st.idxSize === s, () => this.setState({ idxSize: s }))) },
+        { label: 'Economy', opts: ['All', 'Advanced', 'Emerging'].map((e) => filterBtn(e === 'All' ? 'All economies' : e, st.idxEconomy === e, () => this.setState({ idxEconomy: e }))) },
+        { label: 'Maturity', opts: ['All', 'Leaders', 'Advancers', 'Adopters'].map((t) => filterBtn(t === 'All' ? 'All tiers' : t, st.idxTier === t, () => this.setState({ idxTier: t }))) }
+      ],
+      idxResultLabel: filtered.length + ' of 200 cities',
+      idxHasResults: filtered.length > 0,
+      idxEmpty: filtered.length === 0,
+      idxGroups: TIERS.map((t) => {
+        const rows = filtered.filter((c) => c.tier === t.key).slice().sort((a, b) => b.score - a.score);
+        return {
+          key: t.key, label: t.key, blurb: t.blurb,
+          count: rows.length + (rows.length === 1 ? ' city' : ' cities'),
+          show: rows.length > 0,
+          swatchStyle: 'width:15px;height:15px;flex:none;border-radius:4px;background:' + t.swatch,
+          cities: rows.map((c) => ({
+            name: c.name, country: c.country, region: c.region, meta: c.country + ' · ' + c.region, size: c.size, tier: t.one, score: c.score.toFixed(1),
+            cardStyle: 'text-align:left;cursor:pointer;display:block;width:100%;background:#fff;border:1px solid #E1E8EE;border-left:4px solid ' + t.accent + ';border-radius:10px;padding:14px 16px 13px;font-family:Calibri,\'Carlito\',sans-serif;transition:box-shadow .14s ease;display:flex;flex-direction:column;justify-content:space-between',
+            nameStyle: 'font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-size:18px;font-weight:800;line-height:1.1;letter-spacing:-.025em;color:#231F20;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap',
+            metaStyle: 'font-size:12px;line-height:1.25;color:#5F7480;overflow:hidden;text-overflow:ellipsis;white-space:nowrap',
+            chipStyle: 'flex:none;font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-size:9.5px;letter-spacing:.12em;font-weight:700;text-transform:uppercase;color:' + t.ink + ';background:' + t.chipBg + ';border-radius:999px;padding:4px 9px',
+            regionStyle: 'font-size:12px;color:#5F7480',
+            scoreStyle: 'font-family:\'Archivo\',Calibri,\'Carlito\',sans-serif;font-size:20px;font-weight:800;letter-spacing:-.025em;line-height:1;font-variant-numeric:tabular-nums;color:' + t.ink,
+            go: () => this.setState({ profile: c })
+          }))
+        };
+      }),
+
+      profileOpen: !!profile,
+      profile: profile || { name: '', country: '', region: '', size: '', economy: '', tier: '', score: '', rank: '', photoId: 'city-photo', scrim: 'none', scoreStyle: '', headStyle: 'background:#0B4A63;color:#fff;padding:26px 32px 24px;position:relative', tierChipStyle: '', gaugeStyle: '', accentInk: '', pillars: [], peers: [] },
+      closeProfile: () => this.setState({ profile: null }),
+      stopProp: (e) => e.stopPropagation(),
+
+      toggleAsk: () => this.setState({ ask: !st.ask }),
+      openAsk: () => this.setState({ ask: true }),
+      closeAsk: () => this.setState({ ask: false }),
+      fabStyle: 'position:fixed;right:28px;bottom:28px;z-index:80;background:linear-gradient(100deg,#508C3C 0%,#2C7C6E 52%,#086C94 100%);color:#FFFFFF;border:0;border-radius:999px;padding:11px 20px;font-family:' + DISPLAY + ';font-size:14.5px;font-weight:700;letter-spacing:-.015em;cursor:pointer;box-shadow:0 10px 24px rgba(6,43,57,.22);transition:filter .14s ease,transform .14s ease;align-items:center;gap:9px;display:' + ((st.ask || st.section === 'overview') ? 'none' : 'inline-flex'),
+      askPanelStyle: 'position:fixed;top:0;right:0;bottom:0;width:410px;max-width:92vw;z-index:90;background:#fff;border-left:1px solid #E1E8EE;display:flex;flex-direction:column;transform:translateX(' + (st.ask ? '0' : '104%') + ');transition:transform .22s ease',
+      planPlans: ['Strategic-plan status by city — sortable table', 'Domains targeted now versus in three years — per-city matrix', 'Governance structures in place — per-city checklist', 'Shared digital foundation tools adopted — coverage grid', 'AI spend and budget allocation — per-city bars', 'Compare any two cities side by side'].map(function (l) { return { label: l }; }),
+
+      perspectiveCards: ['Most effective AI solution', 'Lessons learned', 'Citizen trust', 'Partnerships', 'Funding the programme', 'Workforce and skills'].map(function (t) {
+        return { theme: t, text: '\u201cPlaceholder quotation from a city leader, two to four sentences, carried verbatim from the interview programme or the survey\u2019s open-ended responses. Replaced once fieldwork closes.\u201d' };
+      }),
+
+      surveyThemes: [
+        { label: 'Background and city profile', count: '6' },
+        { label: 'Priorities, perspectives, challenges', count: '5' },
+        { label: 'Progress and maturity', count: '5' },
+        { label: 'AI across urban domains', count: '9' },
+        { label: 'Technology and partners', count: '6' },
+        { label: 'Benefits and ROI', count: '6' }
+      ],
+      surveyRows: CITIES.slice(0, 10).map(function (c, i) { return { rank: i + 1, name: c.name, region: c.region }; }),
+
+      benchUsageOpts: [
+        { v: 0, label: 'Not using AI yet' },
+        { v: 25, label: 'Planning to adopt AI' },
+        { v: 50, label: 'Piloting AI in a few areas' },
+        { v: 75, label: 'Using AI selectively in production' },
+        { v: 100, label: 'Using AI widely across the city' }
+      ].map((o) => this.benchRadio(o, 'usage')),
+
+      benchFoundationOpts: [
+        { v: 15, label: 'Early \u2014 siloed data, legacy systems' },
+        { v: 45, label: 'Developing \u2014 some cloud and integration' },
+        { v: 75, label: 'Mid \u2014 unified data platform, modern IT' },
+        { v: 100, label: 'Advanced \u2014 scalable cloud, strong talent and tooling' }
+      ].map((o) => this.benchRadio(o, 'foundation')),
+
+      benchDomainChips: ['Government and operations', 'Safety, security, and resilience', 'Living, health, and trust', 'Mobility and transportation', 'Urban infrastructure', 'Environment and sustainability'].map((n, i) => this.benchCheck(n, i, 'domains')),
+
+      benchRespChips: ['Establish a clear governance framework', 'Implement guidelines for handling of personal data', 'Implement auditing processes to uncover biases and hallucinations', 'Work with other government and regulatory bodies to develop policies', 'Collaborate with experts to develop policies', 'Engage with residents to gather feedback and address concerns', 'Establish procedures to handle job displacement and retrain workers', 'Benchmark AI governance against national or international standards', 'Enhance data privacy and security through digital tools and systems', 'Ensure that city employees disclose their use of AI', 'Provide training to employees on responsible AI use'].map((n, i) => this.benchCheck(n, i, 'responsible')),
+
+      benchReady: bReady,
+      benchNotDone: !st.benchDone,
+      benchDone: st.benchDone,
+      benchRun: () => { if (bReady) { this.setState({ benchDone: true }); requestAnimationFrame(() => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); } },
+      benchReset: () => this.setState({ bench: { usage: null, domains: [], responsible: [], foundation: null }, benchDone: false }),
+      benchRunStyle: 'border:0;border-radius:999px;padding:13px 26px;font-family:' + DISPLAY + ';font-size:15px;font-weight:700;letter-spacing:-.01em;color:#fff;cursor:' + (bReady ? 'pointer' : 'not-allowed') + ';background:' + (bReady ? 'linear-gradient(100deg,#508C3C 0%,#2C7C6E 52%,#086C94 100%)' : '#DCE4EA'),
+
+      benchScorePct: bScore + '%',
+      benchTier: bTier.name,
+      benchTierColor: bTier.color,
+      benchTierMsg: bTier.msg,
+      benchGaugeStyle: 'width:' + bScore + '%;height:100%;border-radius:999px;background:linear-gradient(90deg,#508C3C,#2C7C6E 55%,#3FA9CE);transition:width 1s cubic-bezier(.22,1,.36,1)',
+      benchPillars: [
+        { name: 'Use of AI', val: Math.round(bSc.p1), color: '#086C94' },
+        { name: 'Domain breadth', val: Math.round(bSc.p2), color: '#136E85' },
+        { name: 'Responsible AI', val: Math.round(bSc.p3), color: '#2C7C6E' },
+        { name: 'Future-ready foundation', val: Math.round(bSc.p4), color: '#508C3C' }
+      ].map((p) => ({ name: p.name, valTxt: p.val, barStyle: 'height:100%;border-radius:6px;width:' + p.val + '%;background:' + p.color + ';transition:width .9s cubic-bezier(.22,1,.36,1)' })),
+
+
+      sampleQs: [
+        'Which regions are furthest ahead on AI governance?',
+        'What do large cities cite as their biggest funding challenge?',
+        'How does progress on resident services compare with workforce readiness?',
+        'Which partnership models are cities prioritising?',
+        'What ROI are cities reporting, and how long is payback?'
+      ]
+    };
+  }
+}
+
+</script>
+
+
+</body></html>
