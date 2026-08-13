@@ -213,18 +213,45 @@
   // other slots' persisted entries, and flushing it would clobber them —
   // that narrow case stays best-effort (the in-memory merge in load()
   // cannot happen in an unloading document anyway).
+  // Ids this page instance actually changed. A whole-file write from an
+  // instance that only ever HYDRATED (my preview iframe, a second tab, a
+  // reloaded editor pane) used to clobber drops made elsewhere after its
+  // own hydration — that is how a session's photos vanished. Two rules fix
+  // it: never write unless this instance owns a change, and re-read the
+  // sidecar immediately before writing so untouched keys come from disk.
+  const localDirty = new Set();
+
+  function mergeDiskThenWrite(w) {
+    return fetch(STATE_FILE)
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null)
+      .then((disk) => {
+        if (disk && typeof disk === 'object') {
+          for (const k in disk) {
+            // Disk wins for anything this instance never touched.
+            if (!localDirty.has(k)) slots[k] = disk[k];
+          }
+          subs.forEach((fn) => fn());
+        }
+        return w(STATE_FILE, JSON.stringify(slots));
+      });
+  }
+
   function flushNow() {
-    if (!loaded) return;
+    if (!loaded || !localDirty.size) return;
     const w = window.omelette && window.omelette.writeFile;
     if (!w) return;
+    // No re-read here: an unloading document can't await a fetch. Content is
+    // a superset snapshot of any in-flight save's.
     try { Promise.resolve(w(STATE_FILE, JSON.stringify(slots))).catch(() => {}); } catch (e) {}
   }
   function save() {
+    if (!localDirty.size) return;
     if (saving) { saveDirty = true; return; }
     const w = window.omelette && window.omelette.writeFile;
     if (!w) return;
     saving = true;
-    Promise.resolve(w(STATE_FILE, JSON.stringify(slots)))
+    mergeDiskThenWrite(w)
       .catch(() => {})
       .then(() => { saving = false; if (saveDirty) { saveDirty = false; save(); } });
   }
@@ -242,6 +269,7 @@
 
   function setSlot(id, val) {
     if (!id) return;
+    localDirty.add(id);
     if (val) { slots[id] = val; tombstones.delete(id); }
     else { delete slots[id]; if (!loaded) tombstones.add(id); }
     subs.forEach((fn) => fn());
