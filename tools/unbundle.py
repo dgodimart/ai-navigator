@@ -44,7 +44,7 @@ from optimize_images import optimize, HAVE_PILLOW  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-    ROOT, "Client", "ThoughtLab AI City Navigator.html")
+    ROOT, "Client", "AINavigatorExport.html")
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, "site")
 
 # The bundle's template carries no <title>; without this the tab reads as an

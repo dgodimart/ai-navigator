@@ -39,9 +39,10 @@ only non-200 responses — silence means a clean load.
 ### Two trees, one of which is an archive
 
 - **`site/`** — the deployable *and* the source. This is what you edit.
-- **`Client/ThoughtLab AI City Navigator.html`** — the original 22 MB
-  self-extracting Claude-artifact bundle. Provenance only. Editing it does
-  nothing.
+- **`Client/AINavigatorExport.html`** — the 20 MB self-extracting
+  Claude-artifact bundle the site was imported from. Provenance only. Editing it
+  does nothing. A newer export replaces this file, so the name tracks whatever
+  the latest one was called.
 
 **`tools/unbundle.py` overwrites `site/index.html` and wipes `site/assets/`.**
 Once anyone has hand-edited the site, re-running it destroys that work. It is a
@@ -49,7 +50,7 @@ one-off importer for a fresh artifact export, not part of any normal loop.
 
 ### Everything lives in one file
 
-`site/index.html` is ~190 KB and holds the entire app: inline `<style>` blocks,
+`site/index.html` is ~200 KB and holds the entire app: inline `<style>` blocks,
 the markup, and near the bottom a `<script type="text/x-dc">` block containing
 all data and view logic (`REGIONS`, `RAW`, `CITIES`, `TIERS`, `PILLARS`,
 `CHAPTERS`, `CUT_DIMS`, `FINDINGS`).
@@ -115,18 +116,26 @@ const r = performance.getEntriesByType('resource');
 there is an accidental runtime dependency on a third party. `unbundle.py` runs
 the same check over the markup at import time and prints what it finds.
 
-Exercise all five nav groups. The region map (a 264 KB separate HTML component
-in an iframe) and the City index are the two screens most likely to break, since
-they load `site/assets/components/` at runtime.
+Exercise all five nav groups. The region map (a 308 KB separate HTML component
+in an iframe, on Research Background) and the City index are the two screens most
+likely to break, since they load `site/assets/components/` at runtime. Opening a
+city card is worth one extra click — the profile photo goes through the same
+component path.
 
-Expect ~2 MB transferred and ~26 requests for a full click-through.
+Expect ~3.8 MB transferred and ~49 requests for a full click-through.
+
+Several chapter screens (03, 04, 05) and City plans are heading-only in the
+current export. That is how they were authored upstream, not a broken import —
+check the markup before chasing an empty screen.
 
 ## Known quirks
 
-- Each load makes one **failing request for the literal `{{ mapSrc }}`** —
-  `site/index.html:1305` has `<iframe src="{{ mapSrc }}">`, and the browser
-  fetches the unresolved placeholder before the runtime hydrates it. Inherited
-  from the original draft. The map renders correctly; this is not a bug to chase.
+- Each load makes one **failing request for an unresolved `{{ … }}` placeholder**
+  — the browser fetches the literal attribute value before the runtime hydrates
+  it. Currently it is `{{ profile.photoSrc }}` from the `<image-slot>` at
+  `site/index.html:1890`. (The older `{{ mapSrc }}` case is gone: the region-map
+  iframe now ships with no `src` and gets one assigned in script.) Inherited from
+  the artifact tooling; everything renders correctly. Not a bug to chase.
 - **All survey data is placeholder.** Maturity tiers and scores are deterministic
   hashes of city names, and most findings render as `xx%`. Do not treat any
   number on screen as a finding, and do not "fix" the hashing — it is intentional
